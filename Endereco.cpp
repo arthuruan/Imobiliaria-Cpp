@@ -40,28 +40,28 @@ string Endereco::getCidade()
 
 void Endereco::setLogradouro(string logradouro)
 {
-    this->logradouro= logradouro;
+    this -> logradouro= logradouro;
 }
 
 void Endereco::setNumero(int numero)
 {
     if(numero<0)
-        this ->numero = 0;
+        this -> numero = 0;
     else
-        this->numero = numero;
+        this -> numero = numero;
 }
 
 void Endereco::setBairro(string bairro)
 {
-    this->bairro = bairro;
+    this -> bairro = bairro;
 }
 
 void Endereco::setCep(string cep)
 {
-    this->cep = cep;
+    this -> cep = cep;
 }
 
 void Endereco::setCidade(string cidade)
 {
-    this->cidade=cidade;
+    this -> cidade=cidade;
 }

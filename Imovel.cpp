@@ -31,12 +31,12 @@ Endereco Imovel::getEndereco()
 
 void Imovel::setTipoImovel(int tipoImovel)
 {
-    this->tipoImovel=tipoImovel;
+    this -> tipoImovel=tipoImovel;
 }
 
 void Imovel::setTipoOferta(int tipoOferta)
 {
-    this->tipoOferta=tipoOferta;
+    this -> tipoOferta=tipoOferta;
 }
 
 void Imovel::setValor(double valor)
@@ -49,5 +49,5 @@ void Imovel::setValor(double valor)
 
 void Imovel::setEndereco(Endereco endereco)
 {
-    this ->endereco = endereco;
+    this -> endereco = endereco;
 }

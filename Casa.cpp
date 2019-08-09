@@ -33,31 +33,31 @@ double Casa::getAreaContruida()
 void Casa::setNumPavimentos(int numPavimentos)
 {
     if(numPavimentos<0)
-        this->numPavimentos = 0;
+        this -> numPavimentos = 0;
     else
-        this->numPavimentos = numPavimentos;
+        this -> numPavimentos = numPavimentos;
 }
 
 void Casa::setNumQuartos(int numQuartos)
 {
     if(numQuartos<0)
-        this->numQuartos = 0;
+        this -> numQuartos = 0;
     else
-        this ->numQuartos = numQuartos;
+        this -> numQuartos = numQuartos;
 }
 
 void Casa::setAreaTerreno(double areaTerreno)
 {
     if(areaTerreno<0)
-        this->areaTerreno= 0;
+        this -> areaTerreno= 0;
     else
-        this->areaTerreno=areaTerreno;
+        this -> areaTerreno=areaTerreno;
 }
 
 void Casa::setAreaContruida(double areaConstruida)
 {
     if(areaConstruida<0)
-        this->areaConstruida=0;
+        this -> areaConstruida=0;
     else
-        this->areaConstruida=areaConstruida;
+        this -> areaConstruida=areaConstruida;
 }

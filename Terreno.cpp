@@ -17,5 +17,5 @@ void Terreno::setArea(double area)
     if(area < 0 )
         this -> area = 0;
     else
-        this ->area = area;
+        this -> area = area;
 }
