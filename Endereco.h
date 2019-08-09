@@ -7,8 +7,20 @@ using namespace std;
 class Endereco{
     public:
         Endereco();
-    private:
-        string rua;
+        string getLogradouro();
+        int getNumero();
+        string getBairro();
+        string getCep();
+        string getCidade();
+
+        void setLogradouro(string logradouro);
+        void setNumero(int numero);
+        void setBairro(string bairro);
+        void setCep(string cep);
+        void setCidade(string cidade);
+
+    protected:
+        string logradouro;
         int numero;
         string bairro;
         string cep;

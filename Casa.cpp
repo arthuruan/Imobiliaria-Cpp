@@ -1,30 +1,63 @@
 #include <iostream>
 #include "Casa.h"
+#include "Terreno.h"
 
 Casa::Casa(){
-    //inicialização atributos da classe imovel
-    estado = 0;
-    tipoOferta = 0;
-    valor = 0;
     //inicialização atributos da classe casa
     numPavimentos = 0;
     numQuartos = 0;
     areaTerreno = 0;
-    areaConstrida = 0;
+    areaConstruida = 0;
 }
 
-double Casa::getValor(){
-    return valor;
+int Casa::getNumPavimentos()
+{
+    return numPavimentos;
 }
 
-int Casa::getTipoOferta(){
-    return tipoOferta;
+int Casa::getNumQuartos()
+{
+    return numQuartos;
 }
 
-Endereco Casa::getEndereco(){
-    return endereco;
+double Casa::getAreaTerreno()
+{
+    return areaTerreno;
 }
 
-string Casa::getDescricao(){
-    
+double Casa::getAreaContruida()
+{
+    return areaConstruida;
+}
+
+void Casa::setNumPavimentos(int numPavimentos)
+{
+    if(numPavimentos<0)
+        this->numPavimentos = 0;
+    else
+        this->numPavimentos = numPavimentos;
+}
+
+void Casa::setNumQuartos(int numQuartos)
+{
+    if(numQuartos<0)
+        this->numQuartos = 0;
+    else
+        this ->numQuartos = numQuartos;
+}
+
+void Casa::setAreaTerreno(double areaTerreno)
+{
+    if(areaTerreno<0)
+        this->areaTerreno= 0;
+    else
+        this->areaTerreno=areaTerreno;
+}
+
+void Casa::setAreaContruida(double areaConstruida)
+{
+    if(areaConstruida<0)
+        this->areaConstruida=0;
+    else
+        this->areaConstruida=areaConstruida;
 }

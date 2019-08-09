@@ -4,19 +4,31 @@
 #include <iostream>
 #include <sstream>
 
+
+
 using namespace std;
 
 class Imovel{
     protected:
-        int estado; //casa, apartamento, terreno
+        int tipoImovel; //casa, apartamento, terreno
         int tipoOferta; //Venda, aluguel
         double valor;
         Endereco endereco;
+
     public:
-        virtual double getValor() = 0;
+        Imovel();
+       
+        int getTipoImovel();
+        double getValor();
         int getTipoOferta();
         Endereco getEndereco();
-        string getDescricao();
+
+        void setTipoImovel(int tipoImovel);
+        void setTipoOferta(int tipoOferta);
+        void setValor(double valor);
+        void setEndereco(Endereco endereco);
+ 
+        virtual void EditaImovel() = 0;
 };
 
 #endif // IMOVEL_H
