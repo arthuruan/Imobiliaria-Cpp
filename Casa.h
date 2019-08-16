@@ -8,13 +8,20 @@ class Casa : public Imovel{
         int numPavimentos;
         int numQuartos;
         double areaTerreno;
-        double areaConstrida;
+        double areaConstruida;
+
     public:
         Casa();
-        double getValor();
-        int getTipoOferta();
-        Endereco getEndereco();
-        string getDescricao();
+        int getNumPavimentos();
+        int getNumQuartos();
+        double getAreaTerreno();
+        double getAreaContruida();
+
+        void setNumPavimentos(int numPavimentos);
+        void setNumQuartos(int numQuartos);
+        void setAreaTerreno(double areaTerreno);
+        void setAreaContruida(double areaConstruida);
+
 };
 
 #endif // CASA_H
