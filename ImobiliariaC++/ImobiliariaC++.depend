@@ -1,0 +1,45 @@
+# depslib dependency file v1.0
+1514140574 source:c:\users\arthur niodizeo\documents\imobiliariac++\main.cpp
+	<iostream>
+
+1565981574 source:c:\users\arthur niodizeo\documents\imobiliariac++\src\apartamento.cpp
+	"Imovel.h"
+	<iostream>
+	"Apartamento.h"
+
+1565981859 c:\users\arthur niodizeo\documents\imobiliariac++\include\imovel.h
+	"Endereco.h"
+	<iostream>
+	<sstream>
+
+1565975852 c:\users\arthur niodizeo\documents\imobiliariac++\include\endereco.h
+	<iostream>
+
+1565975852 c:\users\arthur niodizeo\documents\imobiliariac++\include\apartamento.h
+	"Imovel.h"
+
+1565981574 source:c:\users\arthur niodizeo\documents\imobiliariac++\src\casa.cpp
+	<iostream>
+	"Casa.h"
+	"Terreno.h"
+
+1565975852 c:\users\arthur niodizeo\documents\imobiliariac++\include\casa.h
+	"Imovel.h"
+	<iostream>
+
+1565975852 c:\users\arthur niodizeo\documents\imobiliariac++\include\terreno.h
+	"Imovel.h"
+
+1565975852 source:c:\users\arthur niodizeo\documents\imobiliariac++\src\endereco.cpp
+	"Endereco.h"
+	<iostream>
+
+1565981574 source:c:\users\arthur niodizeo\documents\imobiliariac++\src\imovel.cpp
+	"Imovel.h"
+	<iostream>
+
+1565981574 source:c:\users\arthur niodizeo\documents\imobiliariac++\src\terreno.cpp
+	"Imovel.h"
+	<iostream>
+	"Terreno.h"
+
