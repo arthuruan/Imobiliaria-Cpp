@@ -6,13 +6,14 @@
 
 using namespace std;
 
-class Imovel : public Endereco{
+class Imovel{
     protected:
         int tipoImovel; //casa, apartamento, terreno
         int tipoOferta; //Venda, aluguel
         double valor;
         Endereco endereco;
         string descricao;
+        int id;
 
     public:
         Imovel();
@@ -22,15 +23,16 @@ class Imovel : public Endereco{
         int getTipoOferta();
         Endereco getEndereco();
         string getDescricao();
+        int getId();
 
         void setTipoImovel(int tipoImovel);
         void setTipoOferta(int tipoOferta);
         void setValor(double valor);
-        void setEndereco(string logradouro, int numero, string bairro, string cep, string cidade);
+        void setEndereco(Endereco endereco);
         void setDescricao(string descricao);
+        void setId(int id);
 
         virtual void EditaImovel();
-        void CadastroAll(int flag);
 };
 
 #endif // IMOVEL_H

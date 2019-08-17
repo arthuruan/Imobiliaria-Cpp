@@ -1,6 +1,7 @@
 #include "Imovel.h"
 #include <iostream>
 
+
 Imovel::Imovel()
 {
     tipoImovel = 0;
@@ -46,13 +47,9 @@ void Imovel::setValor(double valor)
         this -> valor = valor;
 }
 
-void Imovel::setEndereco(string logradouro, int numero, string bairro, string cep, string cidade)
+void Imovel::setEndereco(Endereco endereco)
 {
-    endereco.setLogradouro(logradouro);
-    endereco.setNumero(numero);
-    endereco.setBairro(bairro);
-    endereco.setCep(cep);
-    endereco.setCidade(cidade);
+    this -> endereco = endereco;
 }
 
 string Imovel::getDescricao()
@@ -70,17 +67,16 @@ void Imovel::EditaImovel()
 
 }
 
-void Imovel::CadastroAll(int flag){//em teste
-
-    cout << "Digite o logradouro: ";
-    cin >> logradouro;
-    cout << "Digite o numero do imovel: ";
-    cin >> numero;
-    cout << "Digite o bairro: ";
-    cin >> bairro;
-    cout << "Digite o CEP: ";
-    cin >> cep;
-    cout << "Digite a cidade: ";
-    cin >> cidade;
-
+int Imovel::getId()
+{
+    return id;
 }
+
+void Imovel::setId(int id)
+{
+    this->id=id;
+}
+
+
+
+
