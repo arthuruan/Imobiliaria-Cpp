@@ -8,6 +8,7 @@ Casa::Casa(){
     numQuartos = 0;
     areaTerreno = 0;
     areaConstruida = 0;
+    tipoImovel = 1;
 }
 
 int Casa::getNumPavimentos()
@@ -61,3 +62,5 @@ void Casa::setAreaContruida(double areaConstruida)
     else
         this -> areaConstruida=areaConstruida;
 }
+
+

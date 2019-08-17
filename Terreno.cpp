@@ -5,6 +5,7 @@
 Terreno::Terreno()
 {
     area = 0;
+    tipoImovel = 3;
 }
 
 double Terreno::getArea()

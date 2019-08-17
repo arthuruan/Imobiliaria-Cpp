@@ -3,8 +3,7 @@
 #include "Imovel.h"
 #include <list>
 
-class SistemaImobiliaria
-{
+class SistemaImobiliaria{
     public:
         SistemaImobiliaria();
         void CadastraImovel(Imovel im);

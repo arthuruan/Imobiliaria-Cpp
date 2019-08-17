@@ -12,6 +12,7 @@ class Casa : public Imovel{
 
     public:
         Casa();
+
         int getNumPavimentos();
         int getNumQuartos();
         double getAreaTerreno();

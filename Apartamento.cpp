@@ -11,6 +11,7 @@ Apartamento::Apartamento()
     valorCondominio= 0;
     vagasGaragem = 0;
     area = 0;
+    tipoImovel = 2;
 }
 
 string Apartamento::getPosicao()
