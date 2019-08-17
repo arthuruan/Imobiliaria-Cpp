@@ -70,17 +70,25 @@ void Imovel::EditaImovel()
 
 }
 
-void Imovel::CadastroAll(int flag){//em teste
+void Imovel::CadastroAll(){//em teste
+
+    string logradouro, bairro, cep, cidade;
+    int numero; 
 
     cout << "Digite o logradouro: ";
     cin >> logradouro;
+    endereco.setLogradouro(logradouro);
     cout << "Digite o numero do imovel: ";
     cin >> numero;
+    endereco.setNumero(numero);
     cout << "Digite o bairro: ";
     cin >> bairro;
+    endereco.setBairro(bairro);
     cout << "Digite o CEP: ";
     cin >> cep;
+    endereco.setCep(cep);
     cout << "Digite a cidade: ";
     cin >> cidade;
+    endereco.setCidade(cidade);
 
 }
