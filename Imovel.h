@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class Imovel{
+class Imovel : public Endereco{
     protected:
         int tipoImovel; //casa, apartamento, terreno
         int tipoOferta; //Venda, aluguel

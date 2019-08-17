@@ -10,6 +10,8 @@ class Casa : public Imovel{
         double areaTerreno;
         double areaConstruida;
 
+        //Imovel cadastro;
+
     public:
         Casa();
 
