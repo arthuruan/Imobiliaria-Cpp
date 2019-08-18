@@ -13,6 +13,7 @@ class Imovel{
         double valor;
         Endereco endereco;
         string descricao;
+        int id;
 
     public:
         Imovel();
@@ -22,12 +23,14 @@ class Imovel{
         int getTipoOferta();
         Endereco getEndereco();
         string getDescricao();
+        int getId();
 
         void setTipoImovel(int tipoImovel);
         void setTipoOferta(int tipoOferta);
         void setValor(double valor);
-        void setEndereco(string logradouro, int numero, string bairro, string cep, string cidade);
+        void setEndereco(Endereco endereco);
         void setDescricao(string descricao);
+        void setId(int id);
 
         virtual void EditaImovel();
         void CadastroAll();

@@ -1,4 +1,5 @@
 #include "SistemaImobiliaria.h"
+#include <bits/stdc++.h>
 #define MAIOR_QUE 1
 #define MENOR_QUE 0
 
@@ -13,21 +14,21 @@ void SistemaImobiliaria::CadastraImovel(Imovel* im)
 
 void SistemaImobiliaria::DeletaImovel(int indice)
 {
-    for(Imovel *i : listaDeImoveis){
+    for(Imovel *i : listaImovel){
         if(i->getId() == indice){
-            listaDeImoveis.remove(i);
+            listaImovel.remove(i);
         }
     }
 }
 
-list SistemaImobiliaria::getImoveis()
+list<Imovel*> SistemaImobiliaria::getImoveis()
 {
     return listaImovel;
 }
 
-list SistemaImobiliaria::getDescricaoImoveis()
+list<Imovel*> SistemaImobiliaria::getDescricaoImoveis()
 {
-    list<string> descricoes;
+    list<Imovel*> descricoes;
     string stringMinuscula;
     string stringMinuscula2;
 
@@ -42,7 +43,7 @@ list SistemaImobiliaria::getDescricaoImoveis()
         return descricoes;
 }
 
-list SistemaImobiliaria::getImoveisPorTipo(int tipo)
+list<Imovel*> SistemaImobiliaria::getImoveisPorTipo(int tipo)
 {
     list<Imovel*> imoveisPorTipo;
 
@@ -53,7 +54,7 @@ list SistemaImobiliaria::getImoveisPorTipo(int tipo)
     return imoveisPorTipo;
 }
 
-list SistemaImobiliaria::getImoveisParaAlugarPorBairro(int tipoOferta,string bairro)
+list<Imovel*> SistemaImobiliaria::getImoveisParaAlugarPorBairro(int tipoOferta,string bairro)
 {
     list<Imovel*> imoveisPorAluguelBairro;
 
@@ -69,7 +70,7 @@ list SistemaImobiliaria::getImoveisParaAlugarPorBairro(int tipoOferta,string bai
     return imoveisPorAluguelBairro;
 }
 
-list SistemaImobiliaria::getImoveisParaVenderPorBairro(int tipoOferta,string bairro)
+list<Imovel*> SistemaImobiliaria::getImoveisParaVenderPorBairro(int tipoOferta,string bairro)
 {
     list<Imovel*> imoveisPorVendaBairro;
 
@@ -85,7 +86,7 @@ list SistemaImobiliaria::getImoveisParaVenderPorBairro(int tipoOferta,string bai
     return imoveisPorVendaBairro;
 }
 
-list SistemaImobiliaria::getImoveisPorCidade(string cidade)
+list<Imovel*> SistemaImobiliaria::getImoveisPorCidade(string cidade)
 {
     list<Imovel*> imoveisPorCidade;
 
@@ -106,7 +107,8 @@ list SistemaImobiliaria::getImoveisPorCidade(string cidade)
         return imoveisPorCidade;
 
 }
-list SistemaImobiliaria::getImoveisPorBairro(string bairro)
+
+list<Imovel*> SistemaImobiliaria::getImoveisPorBairro(string bairro)
 {
     list<Imovel*> imoveisPorBairro;
 
@@ -128,7 +130,7 @@ list SistemaImobiliaria::getImoveisPorBairro(string bairro)
 
 }
 
-list SistemaImobiliaria::getImoveisPorValor(float valor,int flag)
+list<Imovel*> SistemaImobiliaria::getImoveisPorValor(float valor,int flag)
 {
     list<Imovel*> imoveisPorValor;
 
@@ -145,7 +147,7 @@ list SistemaImobiliaria::getImoveisPorValor(float valor,int flag)
     return imoveisPorValor;
 }
 
-list SistemaImobiliaria::getImoveisPorTipoAnuncio(int tipoOferta)
+list<Imovel*> SistemaImobiliaria::getImoveisPorTipoAnuncio(int tipoOferta)
 {
     list<Imovel*> imoveisPorAnuncio;
 
