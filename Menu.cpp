@@ -1,4 +1,7 @@
 #include "Menu.h"
+Menu::Menu(){
+	//construtor
+}
 //Menu1 de inicio do programa
 int Menu::Menu1(){
 

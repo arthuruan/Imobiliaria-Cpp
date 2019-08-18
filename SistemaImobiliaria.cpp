@@ -54,7 +54,7 @@ list<Imovel*> SistemaImobiliaria::getImoveisParaAlugarPorBairro(int tipoOferta,s
     for(Imovel *i: listaImovel){
         string stringMinuscula;
         string stringMinuscula2;
-        stringMinuscula = i->getEndereco()->getBairro()
+        stringMinuscula = i->getEndereco().getBairro();
         stringMinuscula2 = bairro;
 
         if(i->getTipoOferta()==tipoOferta && (stringMinuscula.find(stringMinuscula2)>=0 && stringMinuscula.find(stringMinuscula2) < stringMinuscula.size()))
@@ -69,7 +69,7 @@ list<Imovel*> SistemaImobiliaria::getImoveisParaVenderPorBairro(int tipoOferta,s
     for(Imovel *i: listaImovel){
         string stringMinuscula;
         string stringMinuscula2;
-        stringMinuscula = i->getEndereco()->getBairro()
+        stringMinuscula = i->getEndereco().getBairro();
         stringMinuscula2 = bairro;
 
         if(i->getTipoOferta()==tipoOferta && (stringMinuscula.find(stringMinuscula2)>=0 && stringMinuscula.find(stringMinuscula2) < stringMinuscula.size()))
@@ -85,7 +85,7 @@ list<Imovel*> SistemaImobiliaria::getImoveisPorCidade(string cidade){
         string stringMinuscula;
         string stringMinuscula2;
 
-        stringMinuscula = i->getEndereco()->getCidade()
+        stringMinuscula = i->getEndereco().getCidade();
         stringMinuscula2 = cidade;
 
         transform(stringMinuscula.begin(), stringMinuscula.end(), stringMinuscula.begin(), ::tolower);
@@ -106,7 +106,7 @@ list<Imovel*> SistemaImobiliaria::getImoveisPorBairro(string bairro){
         string stringMinuscula;
         string stringMinuscula2;
 
-        stringMinuscula = i->getEndereco()->getBairro()
+        stringMinuscula = i->getEndereco().getBairro();
         stringMinuscula2 = bairro;
 
         transform(stringMinuscula.begin(), stringMinuscula.end(), stringMinuscula.begin(), ::tolower);

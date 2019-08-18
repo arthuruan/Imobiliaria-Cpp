@@ -4,6 +4,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <conio.h>
+#include <stdlib.h>
 #define CLEAR system("cls")
 #define SETA_BAIXO 80
 #define SETA_CIMA 72
@@ -11,6 +12,7 @@
 
 class Menu{
     public:
+        Menu();
         int Menu1();
         int Menu2();
         int Menu3();
