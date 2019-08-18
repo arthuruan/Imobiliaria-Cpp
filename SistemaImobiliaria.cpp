@@ -3,17 +3,14 @@
 #define MAIOR_QUE 1
 #define MENOR_QUE 0
 
-SistemaImobiliaria::SistemaImobiliaria()
-{
+SistemaImobiliaria::SistemaImobiliaria(){
     //ctor
 }
-void SistemaImobiliaria::CadastraImovel(Imovel* im)
-{
+void SistemaImobiliaria::CadastraImovel(Imovel* im){
     listaImovel.push_back(im);
 }
 
-void SistemaImobiliaria::DeletaImovel(int indice)
-{
+void SistemaImobiliaria::DeletaImovel(int indice){
     for(Imovel *i : listaImovel){
         if(i->getId() == indice){
             listaImovel.remove(i);
@@ -21,13 +18,11 @@ void SistemaImobiliaria::DeletaImovel(int indice)
     }
 }
 
-list<Imovel*> SistemaImobiliaria::getImoveis()
-{
+list<Imovel*> SistemaImobiliaria::getImoveis(){
     return listaImovel;
 }
 
-list<Imovel*> SistemaImobiliaria::getDescricaoImoveis()
-{
+list<Imovel*> SistemaImobiliaria::getDescricaoImoveis(){
     list<Imovel*> descricoes;
     string stringMinuscula;
     string stringMinuscula2;
@@ -43,19 +38,17 @@ list<Imovel*> SistemaImobiliaria::getDescricaoImoveis()
         return descricoes;
 }
 
-list<Imovel*> SistemaImobiliaria::getImoveisPorTipo(int tipo)
-{
+list<Imovel*> SistemaImobiliaria::getImoveisPorTipo(int tipo){
     list<Imovel*> imoveisPorTipo;
 
     for(Imovel *i: listaImovel){
-        if(Imovel i->getTipoImovel()==tipo)
+        if(i->getTipoImovel()==tipo)
             imoveisPorTipo.push_back(i);
     }
     return imoveisPorTipo;
 }
 
-list<Imovel*> SistemaImobiliaria::getImoveisParaAlugarPorBairro(int tipoOferta,string bairro)
-{
+list<Imovel*> SistemaImobiliaria::getImoveisParaAlugarPorBairro(int tipoOferta,string bairro){
     list<Imovel*> imoveisPorAluguelBairro;
 
     for(Imovel *i: listaImovel){
@@ -64,14 +57,13 @@ list<Imovel*> SistemaImobiliaria::getImoveisParaAlugarPorBairro(int tipoOferta,s
         stringMinuscula = i->getEndereco()->getBairro()
         stringMinuscula2 = bairro;
 
-        if(Imovel i->getTipoOferta()==tipoOferta && (stringMinuscula.find(stringMinuscula2)>=0 && stringMinuscula.find(stringMinuscula2) < stringMinuscula.size()))
-            imoveisPorVendaBairro.push_back(i);
+        if(i->getTipoOferta()==tipoOferta && (stringMinuscula.find(stringMinuscula2)>=0 && stringMinuscula.find(stringMinuscula2) < stringMinuscula.size()))
+            imoveisPorAluguelBairro.push_back(i);
     }
     return imoveisPorAluguelBairro;
 }
 
-list<Imovel*> SistemaImobiliaria::getImoveisParaVenderPorBairro(int tipoOferta,string bairro)
-{
+list<Imovel*> SistemaImobiliaria::getImoveisParaVenderPorBairro(int tipoOferta,string bairro){
     list<Imovel*> imoveisPorVendaBairro;
 
     for(Imovel *i: listaImovel){
@@ -80,14 +72,13 @@ list<Imovel*> SistemaImobiliaria::getImoveisParaVenderPorBairro(int tipoOferta,s
         stringMinuscula = i->getEndereco()->getBairro()
         stringMinuscula2 = bairro;
 
-        if(Imovel i->getTipoOferta()==tipoOferta && (stringMinuscula.find(stringMinuscula2)>=0 && stringMinuscula.find(stringMinuscula2) < stringMinuscula.size()))
+        if(i->getTipoOferta()==tipoOferta && (stringMinuscula.find(stringMinuscula2)>=0 && stringMinuscula.find(stringMinuscula2) < stringMinuscula.size()))
             imoveisPorVendaBairro.push_back(i);
     }
     return imoveisPorVendaBairro;
 }
 
-list<Imovel*> SistemaImobiliaria::getImoveisPorCidade(string cidade)
-{
+list<Imovel*> SistemaImobiliaria::getImoveisPorCidade(string cidade){
     list<Imovel*> imoveisPorCidade;
 
     for(Imovel *i: listaImovel){
@@ -108,8 +99,7 @@ list<Imovel*> SistemaImobiliaria::getImoveisPorCidade(string cidade)
 
 }
 
-list<Imovel*> SistemaImobiliaria::getImoveisPorBairro(string bairro)
-{
+list<Imovel*> SistemaImobiliaria::getImoveisPorBairro(string bairro){
     list<Imovel*> imoveisPorBairro;
 
     for(Imovel *i: listaImovel){
@@ -123,38 +113,35 @@ list<Imovel*> SistemaImobiliaria::getImoveisPorBairro(string bairro)
         transform(stringMinuscula2.begin(), stringMinuscula2.end(), stringMinuscula2.begin(), ::tolower);
 
         if(stringMinuscula.find(stringMinuscula2)>=0 && stringMinuscula.find(stringMinuscula2) < stringMinuscula.size())
-            imoveisPorCidade.push_back(i);
+            imoveisPorBairro.push_back(i);
 
     }
         return imoveisPorBairro;
 
 }
 
-list<Imovel*> SistemaImobiliaria::getImoveisPorValor(float valor,int flag)
-{
+list<Imovel*> SistemaImobiliaria::getImoveisPorValor(float valor,int flag){
     list<Imovel*> imoveisPorValor;
 
     for(Imovel *i: listaImovel){
         if(flag == MAIOR_QUE){
-            if(Imovel i->getValor()>=valor)
+            if(i->getValor()>=valor)
                 imoveisPorValor.push_back(i);
         }
         else if(flag == MENOR_QUE){
-            if(Imovel i->getValor()<=valor)
+            if(i->getValor()<=valor)
                 imoveisPorValor.push_back(i);
         }
     }
     return imoveisPorValor;
 }
 
-list<Imovel*> SistemaImobiliaria::getImoveisPorTipoAnuncio(int tipoOferta)
-{
+list<Imovel*> SistemaImobiliaria::getImoveisPorTipoAnuncio(int tipoOferta){
     list<Imovel*> imoveisPorAnuncio;
 
     for(Imovel *i: listaImovel){
-        if(Imovel i->getTipoOferta()==tipoOferta)
+        if(i->getTipoOferta()==tipoOferta)
             imoveisPorAnuncio.push_back(i);
     }
     return imoveisPorAnuncio;
-
 }
