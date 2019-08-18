@@ -3,8 +3,6 @@
 #include "Imovel.h"
 #include <list>
 
-
-
 class SistemaImobiliaria{
     public:
         SistemaImobiliaria();
