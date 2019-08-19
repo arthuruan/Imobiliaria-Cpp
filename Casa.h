@@ -15,6 +15,7 @@ class Casa : public Imovel{
     public:
         Casa();
 
+        std::string MostraString();
         int getNumPavimentos();
         int getNumQuartos();
         double getAreaTerreno();
