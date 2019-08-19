@@ -5,6 +5,7 @@
 #include <sstream>
 #define FLUSH fflush(stdin)
 #include <stdio.h>
+#include <sstream>
 
 using namespace std;
 
@@ -35,7 +36,8 @@ class Imovel{
         void setId(int id);
 
         virtual void EditaImovel();
-        //void CadastroAll();
+        virutal void print();
+        virtual string toString();
 };
 
 #endif // IMOVEL_H

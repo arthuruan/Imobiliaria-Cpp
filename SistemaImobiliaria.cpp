@@ -22,12 +22,15 @@ list<Imovel*> SistemaImobiliaria::getImoveis(){
     return listaImovel;
 }
 
-list<Imovel*> SistemaImobiliaria::getDescricaoImoveis(){
+list<Imovel*> SistemaImobiliaria::getDescricaoImoveis(string descricao){
     list<Imovel*> descricoes;
-    string stringMinuscula;
-    string stringMinuscula2;
 
     for(Imovel *i: listaImovel){
+        string stringMinuscula;
+        string stringMinuscula2;
+
+        stringMinuscula = i->getDescricao();
+        stringMinuscula2 = descricao;
 
         transform(stringMinuscula.begin(), stringMinuscula.end(), stringMinuscula.begin(), ::tolower);
         transform(stringMinuscula2.begin(), stringMinuscula2.end(), stringMinuscula2.begin(), ::tolower);

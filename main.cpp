@@ -75,6 +75,7 @@ Imovel* Cadastroall(int tipoImovel){
         cs->setNumQuartos(numQuartos);
         cs->setAreaTerreno(areaTerreno);
         cs->setAreaContruida(areaConstruida);
+        cs->setId(id);
 
         return (Imovel*)cs;
 
@@ -105,6 +106,7 @@ Imovel* Cadastroall(int tipoImovel){
         ap->setValorCondominio(valorCondominio);
         ap->setVagasGaragem(vagasGaragem);
         ap->setArea(areaAP);
+        ap->setId(id);
 
         return (Imovel*)ap;
 
@@ -120,10 +122,19 @@ Imovel* Cadastroall(int tipoImovel){
         ter->setEndereco(logradouro, numero, bairro, cep, cidade);
         ter->setDescricao(descricao);
         ter->setArea(areaTER);
+        ter->setId(id);
 
         return (Imovel*)ter;
     }
-    id++;
+}
+
+void Exibe(list<Imovel *> const &list){
+    //int i = 0;
+    //SistemaImobiliaria s2 = SistemaImobiliaria();
+    for(auto const& i : list){
+        cout << i << endl;
+    }
+    
 }
 
 int main(void) {
@@ -134,6 +145,8 @@ int main(void) {
     Imovel *cs = new Casa();
     Imovel *ap = new Apartamento();
     Imovel *ter = new Terreno();
+
+    //list<string> list = {"samuel", "eh", "gay"};
 
 	while (1) {
 
@@ -180,10 +193,16 @@ int main(void) {
 			}
 			break;
 		case 2://opcao consultar imoveis disponivel
+            CLEAR;
+            Exibe(s1.getImoveis());
+            system("pause");
 			break;
 		case 3://opcao de busca
 			switch (m1.Menu4()){//menu secundario para saber o tipo da busca
                 case 1://busca por titulo
+                    CLEAR; 
+                    //getline(cin, desc);
+                    //cout << s1.getDescricaoImoveis(desc);
                     flagmenu = 0;
                     break;
                 case 2://busca por bairro
