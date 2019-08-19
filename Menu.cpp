@@ -245,7 +245,10 @@ int Menu::Menu3(){
 
 			tecla = getch();
 
-            if (tecla == SETA_BAIXO)
+			if (tecla == ENTER)
+				//salvar arquivo
+				return 0;
+            else if (tecla == SETA_BAIXO)
 				posicao = 1;
 			else if (tecla == SETA_CIMA)
 				posicao = 1;

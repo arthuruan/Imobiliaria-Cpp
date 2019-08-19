@@ -47,9 +47,13 @@ void Imovel::setValor(double valor)
         this -> valor = valor;
 }
 
-void Imovel::setEndereco(Endereco endereco)
+void Imovel::setEndereco(string logradouro, int numero, string bairro, string cep, string cidade)
 {
-    this -> endereco = endereco;
+    endereco.setLogradouro(logradouro);
+    endereco.setBairro(bairro);
+    endereco.setCidade(cidade);
+    endereco.setCep(cep);
+    endereco.setNumero(numero);
 }
 
 string Imovel::getDescricao()
@@ -65,29 +69,6 @@ void Imovel::setDescricao(string descricao)
 void Imovel::EditaImovel()
 {
 
-}
-
-void Imovel::CadastroAll(){//em teste
-
-    string logradouro, bairro, cep, cidade;
-    int numero; 
-
-    cout << "Digite o logradouro: ";
-    cin >> logradouro;
-    endereco.setLogradouro(logradouro);
-    cout << "Digite o numero do imovel: ";
-    cin >> numero;
-    endereco.setNumero(numero);
-    cout << "Digite o bairro: ";
-    cin >> bairro;
-    endereco.setBairro(bairro);
-    cout << "Digite o CEP: ";
-    cin >> cep;
-    endereco.setCep(cep);
-    cout << "Digite a cidade: ";
-    cin >> cidade;
-    endereco.setCidade(cidade);
-    
 }
 
 int Imovel::getId()

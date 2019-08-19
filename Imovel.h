@@ -3,6 +3,8 @@
 #include "Endereco.h"
 #include <iostream>
 #include <sstream>
+#define FLUSH fflush(stdin)
+#include <stdio.h>
 
 using namespace std;
 
@@ -28,12 +30,12 @@ class Imovel{
         void setTipoImovel(int tipoImovel);
         void setTipoOferta(int tipoOferta);
         void setValor(double valor);
-        void setEndereco(Endereco endereco);
+        void setEndereco(string logradouro, int numero, string bairro, string cep, string cidade);
         void setDescricao(string descricao);
         void setId(int id);
 
         virtual void EditaImovel();
-        void CadastroAll();
+        //void CadastroAll();
 };
 
 #endif // IMOVEL_H

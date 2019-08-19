@@ -18,6 +18,8 @@ class SistemaImobiliaria{
         list<Imovel*> getImoveisPorValor(float valor, int flag);
         list<Imovel*> getImoveisPorTipoAnuncio(int tipo);
 
+        void cadstroall();
+
     private:
         list<Imovel*> listaImovel;
 };
