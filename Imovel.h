@@ -4,6 +4,7 @@
 #include <iostream>
 #include <sstream>
 #define FLUSH fflush(stdin)
+#define PAUSE system("pause")
 #include <stdio.h>
 #include <sstream>
 

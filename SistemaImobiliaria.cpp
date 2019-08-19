@@ -148,3 +148,9 @@ list<Imovel*> SistemaImobiliaria::getImoveisPorTipoAnuncio(int tipoOferta){
     }
     return imoveisPorAnuncio;
 }
+
+void SistemaImobiliaria::exibe(list<Imovel *> list){
+     for(Imovel *i : list){
+        cout << i->toString() << endl;
+    }
+}

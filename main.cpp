@@ -4,7 +4,7 @@
 #include "Apartamento.h"
 #include "Terreno.h"
 
-static int id;
+static int id = 1;
 
 Imovel* Cadastroall(int tipoImovel){
  //----------------------------------------------------------//
@@ -59,7 +59,7 @@ Imovel* Cadastroall(int tipoImovel){
         scanf("%d", &numPavimentos);
         FLUSH;
         cout << "Digite o numero de quartos: ";
-        scanf("%d", &numQuartosAP);
+        scanf("%d", &numQuartos);
         FLUSH;
         cout << "Digite a area do terreno: ";
         scanf("%lf", &areaTerreno);
@@ -130,12 +130,6 @@ Imovel* Cadastroall(int tipoImovel){
     }
 }
 
-void Exibe(list<Imovel *> const &list){
-    for(Imovel *i : list){
-        cout << i->toString() << endl;
-    }
-}
-
 int main(void) {
 	int flagmenu = 0;//flag criada para facilitar a navegacao entre o menu principal e os secundarios
 
@@ -194,14 +188,14 @@ int main(void) {
 			break;
 		case 2://opcao consultar imoveis disponivel
             CLEAR;
-            Exibe(s1.getImoveis());
-            system("pause");
+            s1.exibe(s1.getImoveis());
+            PAUSE;
 			break;
 		case 3://opcao de busca
 			switch (m1.Menu4()){//menu secundario para saber o tipo da busca
                 case 1://busca por titulo
                     CLEAR; 
-                    //getline(cin, desc);
+                    
                     //cout << s1.getDescricaoImoveis(desc);
                     flagmenu = 0;
                     break;
