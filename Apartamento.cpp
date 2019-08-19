@@ -75,3 +75,7 @@ void Apartamento::setArea(double area)
     else
         this ->area = area;
 }
+
+
+
+
