@@ -62,9 +62,29 @@ void Casa::setAreaContruida(double areaConstruida)
     else
         this -> areaConstruida=areaConstruida;
 }
+string Casa::toString()
+{
+    stringstream strong;
 
-string Casa::toString(){
-    /*stringstream tostring;
+    strong<<"Id":id
+          <<"Tipo Oferta:"<< tipoOferta
+          <<"Tipo Imovel:"<< tipoImovel
+          <<"Valor:" << valor
+          <<"Logradouro:"<<getEndereco().getLogradouro()
+          <<"Numero:"<<getEndereco().getNumero()
+          <<"Bairro:"<<getEndereco().getBairro()
+          <<"Cidade:"<<getEndereco().getCidade()
+          <<"Estado:"<<getEndereco().getCep()
+          <<"Numero de Pavimentos:"<<numPavimentos
+          <<"Numero de Quartos:"<<numQuartos
+          <<"Area do terreno:"<<areaTerreno
+          <<"Area construida:"<<areaConstruida;
 
-    tostring << */
+    return strong;
+
 }
+
+
+
+
+

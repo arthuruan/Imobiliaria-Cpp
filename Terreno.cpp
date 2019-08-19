@@ -20,3 +20,23 @@ void Terreno::setArea(double area)
     else
         this -> area = area;
 }
+string Terreno::toString()
+{
+    stringstream strong;
+
+    strong<<"Id":id
+          <<"Tipo Oferta:"<< tipoOferta
+          <<"Tipo Imovel:"<< tipoImovel
+          <<"Valor:" << valor
+          <<"Logradouro:"<<getEndereco().getLogradouro()
+          <<"Numero:"<<getEndereco().getNumero()
+          <<"Bairro:"<<getEndereco().getBairro()
+          <<"Cidade:"<<getEndereco().getCidade()
+          <<"Estado:"<<getEndereco().getCep()
+          <<"Area do terreno:"<<area;
+
+    return strong;
+}
+
+
+

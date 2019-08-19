@@ -75,6 +75,30 @@ void Apartamento::setArea(double area)
     else
         this ->area = area;
 }
+string Apartamento::toString()
+{
+    stringstream strong;
+
+    strong<<"Id":id
+          <<"Tipo Oferta:"<< tipoOferta
+          <<"Tipo Imovel:"<< tipoImovel
+          <<"Valor:" << valor
+          <<"Logradouro:"<<getEndereco().getLogradouro()
+          <<"Numero:"<<getEndereco().getNumero()
+          <<"Bairro:"<<getEndereco().getBairro()
+          <<"Cidade:"<<getEndereco().getCidade()
+          <<"Estado:"<<getEndereco().getCep()
+          <<"Posicao do apartamento"<<posicao
+          <<"Numero de quartos:"<<numQuartos
+          <<"Valor do Condominio:"<<valorCondominio
+          <<"Vagas garagem:"<<vagasGaragem
+          <<"Area do apartamento:"<<area;
+
+    return strong;
+
+
+}
+
 
 
 
