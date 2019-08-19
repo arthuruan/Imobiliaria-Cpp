@@ -4,7 +4,7 @@
 #include "Apartamento.h"
 #include "Terreno.h"
 
-int id = 0;
+static int id;
 
 Imovel* Cadastroall(int tipoImovel){
  //----------------------------------------------------------//
@@ -76,8 +76,8 @@ Imovel* Cadastroall(int tipoImovel){
         cs->setAreaTerreno(areaTerreno);
         cs->setAreaContruida(areaConstruida);
         cs->setId(id);
-
-        return (Imovel*)cs;
+        id++;
+        return cs;
 
     }else if(tipoImovel == 2){//Apartamento
         Apartamento *ap = new Apartamento();
@@ -107,8 +107,9 @@ Imovel* Cadastroall(int tipoImovel){
         ap->setVagasGaragem(vagasGaragem);
         ap->setArea(areaAP);
         ap->setId(id);
+        id++;
 
-        return (Imovel*)ap;
+        return ap;
 
     }else if(tipoImovel == 3){//Terreno
         Terreno *ter = new Terreno();
@@ -123,16 +124,17 @@ Imovel* Cadastroall(int tipoImovel){
         ter->setDescricao(descricao);
         ter->setArea(areaTER);
         ter->setId(id);
+        id++;
 
-        return (Imovel*)ter;
+        return ter;
     }
 }
 
 void Exibe(list<Imovel *> const &list){
     //int i = 0;
     //SistemaImobiliaria s2 = SistemaImobiliaria();
-    for(auto const& i : list){
-        cout << i << endl;
+    for(Imovel *i : list){
+        cout << i->getDescricao() << endl;
     }
     
 }

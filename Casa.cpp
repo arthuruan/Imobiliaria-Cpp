@@ -63,4 +63,8 @@ void Casa::setAreaContruida(double areaConstruida)
         this -> areaConstruida=areaConstruida;
 }
 
+string Casa::toString(){
+    /*stringstream tostring;
 
+    tostring << */
+}

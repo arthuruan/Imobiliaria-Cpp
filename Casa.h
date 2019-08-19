@@ -25,6 +25,8 @@ class Casa : public Imovel{
         void setAreaTerreno(double areaTerreno);
         void setAreaContruida(double areaConstruida);
 
+        string toString();
+
 };
 
 #endif // CASA_H
