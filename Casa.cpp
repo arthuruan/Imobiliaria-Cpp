@@ -62,26 +62,26 @@ void Casa::setAreaContruida(double areaConstruida)
     else
         this -> areaConstruida=areaConstruida;
 }
+
 string Casa::toString()
 {
     stringstream strong;
 
-    strong<<"Id":id
-          <<"Tipo Oferta:"<< tipoOferta
-          <<"Tipo Imovel:"<< tipoImovel
-          <<"Valor:" << valor
-          <<"Logradouro:"<<getEndereco().getLogradouro()
-          <<"Numero:"<<getEndereco().getNumero()
-          <<"Bairro:"<<getEndereco().getBairro()
-          <<"Cidade:"<<getEndereco().getCidade()
-          <<"Estado:"<<getEndereco().getCep()
-          <<"Numero de Pavimentos:"<<numPavimentos
-          <<"Numero de Quartos:"<<numQuartos
-          <<"Area do terreno:"<<areaTerreno
-          <<"Area construida:"<<areaConstruida;
+    strong<< "Casa\n" << "Id: " << id << endl
+          << "Tipo Oferta: " << tipoOferta << endl
+          << "Tipo Imovel: " << tipoImovel << endl
+          << "Valor: " << valor << endl
+          << "Logradouro: " << getEndereco().getLogradouro() << endl
+          << "Numero: " << getEndereco().getNumero() << endl
+          << "Bairro: " << getEndereco().getBairro() << endl
+          << "Cidade: " << getEndereco().getCidade() << endl
+          << "Estado: " << getEndereco().getCep() << endl
+          << "Numero de Pavimentos: " << numPavimentos << endl
+          << "Numero de Quartos: " << numQuartos << endl
+          << "Area do terreno: " << areaTerreno << endl
+          << "Area construida: " << areaConstruida << endl;
 
-    return strong;
-
+    return strong.str();
 }
 
 

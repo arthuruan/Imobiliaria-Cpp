@@ -14,7 +14,6 @@ class Apartamento: public Imovel{
     public:
         Apartamento();
 
-        std::string MostraString();
         std::string getPosicao();
         int getNumQuartos();
         double getValorCondominio();
@@ -26,6 +25,8 @@ class Apartamento: public Imovel{
         void setValorCondominio(double valorCondominio);
         void setVagasGaragem(int vagasGaragem);
         void setArea(double area);
+
+        string toString();
 };
 
 #endif // APARTAMENTO_H

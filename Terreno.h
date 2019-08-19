@@ -9,9 +9,9 @@ class Terreno : public Imovel{
     public:
         Terreno();
 
-        std::string MostraString();
         double getArea();
         void setArea(double area);
 
+        string toString();
 };
 #endif // TERRENO_H

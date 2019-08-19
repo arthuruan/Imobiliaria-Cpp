@@ -24,18 +24,18 @@ string Terreno::toString()
 {
     stringstream strong;
 
-    strong<<"Id":id
-          <<"Tipo Oferta:"<< tipoOferta
-          <<"Tipo Imovel:"<< tipoImovel
-          <<"Valor:" << valor
-          <<"Logradouro:"<<getEndereco().getLogradouro()
-          <<"Numero:"<<getEndereco().getNumero()
-          <<"Bairro:"<<getEndereco().getBairro()
-          <<"Cidade:"<<getEndereco().getCidade()
-          <<"Estado:"<<getEndereco().getCep()
-          <<"Area do terreno:"<<area;
+    strong<< "Terreno\n" << "Id: " << id << endl
+          << "Tipo Oferta: " << tipoOferta << endl
+          << "Tipo Imovel: " << tipoImovel << endl
+          << "Valor: " << valor << endl
+          << "Logradouro: " << getEndereco().getLogradouro() << endl
+          << "Numero: " << getEndereco().getNumero() << endl
+          << "Bairro: " << getEndereco().getBairro() << endl
+          << "Cidade: " << getEndereco().getCidade() << endl
+          << "Estado: " << getEndereco().getCep() << endl
+          << "Area do terreno: " << area << endl;
 
-    return strong;
+    return strong.str();
 }
 
 

@@ -36,7 +36,7 @@ class Imovel{
         void setId(int id);
 
         virtual void EditaImovel();
-        virtual void print();
+        //virtual void print();
         virtual string toString();
 };
 

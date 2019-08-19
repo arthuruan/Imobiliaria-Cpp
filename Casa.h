@@ -14,8 +14,7 @@ class Casa : public Imovel{
 
     public:
         Casa();
-
-        std::string MostraString();
+        
         int getNumPavimentos();
         int getNumQuartos();
         double getAreaTerreno();
@@ -26,6 +25,7 @@ class Casa : public Imovel{
         void setAreaTerreno(double areaTerreno);
         void setAreaContruida(double areaConstruida);
 
+        string toString();
 };
 
 #endif // CASA_H

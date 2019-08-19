@@ -131,12 +131,9 @@ Imovel* Cadastroall(int tipoImovel){
 }
 
 void Exibe(list<Imovel *> const &list){
-    //int i = 0;
-    //SistemaImobiliaria s2 = SistemaImobiliaria();
     for(Imovel *i : list){
-        cout << i->getDescricao() << endl;
+        cout << i->toString() << endl;
     }
-    
 }
 
 int main(void) {
@@ -147,8 +144,6 @@ int main(void) {
     Imovel *cs = new Casa();
     Imovel *ap = new Apartamento();
     Imovel *ter = new Terreno();
-
-    //list<string> list = {"samuel", "eh", "gay"};
 
 	while (1) {
 
@@ -164,7 +159,8 @@ int main(void) {
                         s1.CadastraImovel(cs);
                         flagmenu = 0;
                     }else{
-                        break;//implementar a deleta imovel e chamar aq
+                        flagmenu = 0;
+                        break;
                     }
                     break;
                     flagmenu = 0;
@@ -176,7 +172,8 @@ int main(void) {
                         s1.CadastraImovel(ap);
                         flagmenu = 0;
                     }else{
-                        break;//implementar a deleta imovel e chamar aq
+                        flagmenu = 0;
+                        break;
                     }
                     break;
                 case 3://opcao terreno
@@ -186,7 +183,8 @@ int main(void) {
                         s1.CadastraImovel(ter);
                         flagmenu = 0;
                     }else{
-                        break;//implementar a deleta imovel e chamar aq
+                        flagmenu = 0;
+                        break;
                     }
                     break;
                 case 4://opcao voltar para o menu principal
