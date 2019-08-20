@@ -81,13 +81,13 @@ string Apartamento::toString()
 
     strong<< "Apartamento\n" << "Id: " << id << endl
           << "Tipo Oferta: " << tipoOferta << endl
-          << "Tipo Imovel: " << tipoImovel << endl
           << "Valor: " << valor << endl
+          << "Descricao: " << descricao << endl
           << "Logradouro: " << getEndereco().getLogradouro() << endl
           << "Numero: " << getEndereco().getNumero() << endl
           << "Bairro: " << getEndereco().getBairro() << endl
+          << "Cep: " << getEndereco().getCep() << endl
           << "Cidade: " << getEndereco().getCidade() << endl
-          << "Estado: " << getEndereco().getCep() << endl
           << "Posicao do apartamento: " << posicao << endl
           << "Numero de quartos: " << numQuartos << endl
           << "Valor do Condominio: " << valorCondominio << endl

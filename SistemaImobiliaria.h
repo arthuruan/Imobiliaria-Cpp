@@ -15,7 +15,7 @@ class SistemaImobiliaria{
         list<Imovel*> getImoveisParaVenderPorBairro(int tipoOferta,string bairro);
         list<Imovel*> getImoveisPorBairro(string bairro);
         list<Imovel*> getImoveisPorCidade(string cidade);
-        list<Imovel*> getImoveisPorValor(float valor, int flag);
+        list<Imovel*> getImoveisPorValor(double valor, int flag);
         list<Imovel*> getImoveisPorTipoAnuncio(int tipo);
 
         void exibe(list<Imovel *> list);

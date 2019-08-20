@@ -42,15 +42,15 @@ Imovel* Cadastroall(int tipoImovel){
     //endereco
     cout << "Digite o logradouro: ";    
     getline(cin, logradouro);
+    cout << "Digite o numero do imovel: ";
+    scanf("%d", &numero);
+    FLUSH;
     cout << "Digite o bairro: ";
     getline(cin, bairro);
     cout << "Digite o CEP: ";
     getline(cin, cep);
     cout << "Digite a cidade: ";
     getline(cin, cidade);
-    cout << "Digite o numero do imovel: ";
-    scanf("%d", &numero);
-    FLUSH;
 
     if(tipoImovel == 1){//Casa
         Casa *cs = new Casa();
@@ -86,7 +86,7 @@ Imovel* Cadastroall(int tipoImovel){
         cout << "Digite a posicao do AP: ";
         getline(cin, posicao);
         cout << "Digite o numero de quartos: ";
-        scanf("%d", &numQuartos);
+        scanf("%d", &numQuartosAP);
         FLUSH;
         cout << "Digite o valor do condominio: ";
         scanf("%lf", &valorCondominio);
@@ -143,6 +143,7 @@ int main(void) {
     Imovel *ter = new Terreno();
     string des, bair, cid;
     int tipo, ind;
+    double val;
 
 	while (1) {
 
@@ -204,7 +205,6 @@ int main(void) {
                     CLEAR;
                     s1.exibe(s1.getDescricaoImoveis(des));
                     PAUSE;
-                    flagmenu = 0;
                     break;
                 case 2://busca por bairro
                     switch(m1.Menu8()){
@@ -216,7 +216,7 @@ int main(void) {
                             s1.exibe(s1.getImoveisParaAlugarPorBairro(1, bair));
                             PAUSE;
                             break;
-                        case 2:
+                        case 2://venda
                             CLEAR;
                             cout << "Digite o bairro: ";
                             getline(cin, bair);
@@ -224,14 +224,54 @@ int main(void) {
                             s1.exibe(s1.getImoveisParaVenderPorBairro(2, bair));
                             PAUSE;
                             break;
+                        case 3:
+                            break;
                     }
                     flagmenu = 0;
                     break;
                 case 3://busca por valor
-                    
+                    switch(m1.Menu9()){
+                        case 1://maior
+                            CLEAR;
+                            cout << "Digite o valor: ";
+                            scanf("%lf", &val);
+                            FLUSH;
+                            s1.exibe(s1.getImoveisPorValor(val, 1));
+                            PAUSE;
+                            break;
+                        case 2://menor
+                            CLEAR;
+                            cout << "Digite o valor: ";
+                            scanf("%lf", &val);
+                            FLUSH;
+                            s1.exibe(s1.getImoveisPorValor(val, 2));
+                            PAUSE;
+                            break;
+                        case 3:
+                            break;
+                    }
                     flagmenu = 0;
                     break;
                 case 4://tipo imovel
+                    switch(m1.Menu2()){
+                        case 1://casa
+                            CLEAR;
+                            s1.exibe(s1.getImoveisPorTipo(1));
+                            PAUSE;
+                            break;
+                        case 2://apartamento
+                            CLEAR;
+                            s1.exibe(s1.getImoveisPorTipo(2));
+                            PAUSE;
+                            break;
+                        case 3://terreno
+                            CLEAR;
+                            s1.exibe(s1.getImoveisPorTipo(3));
+                            PAUSE;
+                            break;
+                        case 4:
+                            break;
+                    }
                     flagmenu = 0;
                     break;
                 case 5://volta par ao menu principal
@@ -266,7 +306,6 @@ int main(void) {
             cout << endl;
             s1.DeletaImovel(ind);
             PAUSE;
-            flagmenu = 0;
 			break;
 		case 6://opcao para editar um cadastro
 			break;

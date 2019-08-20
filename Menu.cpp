@@ -431,7 +431,7 @@ int Menu::Menu6(){
 			tecla = getch();
 
 			if (tecla == ENTER)
-				return 0;
+				return 2;
 			else if (tecla == SETA_BAIXO)
 				posicao = 1;
 			else if (tecla == SETA_CIMA)
@@ -468,7 +468,7 @@ int Menu::Menu7(){
 			tecla = getch();
 
 			if (tecla == ENTER)
-				return 0;
+				return 2;
 			else if (tecla == SETA_BAIXO)
 				posicao = 1;
 			else if (tecla == SETA_CIMA)
@@ -476,7 +476,7 @@ int Menu::Menu7(){
 		}
 	}
 }
-
+//Menu 8 para saber qual a busca usar em na opcao bairro
 int Menu::Menu8(){
     int tecla, posicao = 1;
 
@@ -488,6 +488,7 @@ int Menu::Menu8(){
 			printf("\n\tBuscar bairro:\n\n");
 			printf("\t%sAluguel\n", ">>");
 			printf("Venda\n");
+			printf("Sair\n");
 
 			tecla = getch();
 
@@ -496,20 +497,88 @@ int Menu::Menu8(){
 			else if (tecla == SETA_BAIXO)
 				posicao = 2;
 			else if (tecla == SETA_CIMA)
-				posicao = 2;
+				posicao = 3;
 		}else if (posicao == 2){
 			printf("\n\tBuscar bairro\n\n");
 			printf("Aluguel\n");
 			printf("\t%sVenda\n", ">>");
+			printf("Sair\n");
 
 			tecla = getch();
 
 			if (tecla == ENTER)
-				return 0;
+				return 2;
+			else if (tecla == SETA_BAIXO)
+				posicao = 3;
+			else if (tecla == SETA_CIMA)
+				posicao = 1;
+		}else if(posicao == 3){
+			printf("\n\tBuscar bairro:\n\n");
+			printf("Aluguel\n");
+			printf("Venda\n");
+			printf("\t%sSair\n", ">>");
+
+			tecla = getch();
+
+			if (tecla == ENTER)
+				return 1;
 			else if (tecla == SETA_BAIXO)
 				posicao = 1;
 			else if (tecla == SETA_CIMA)
+				posicao = 2;
+		}
+	}
+}
+
+int Menu::Menu9(){
+    int tecla, posicao = 1;
+
+	while (1){
+
+		CLEAR;
+
+		if (posicao == 1){
+			printf("\n\tBuscar valor:\n\n");
+			printf("\t%sMaior\n", ">>");
+			printf("Menor\n");
+			printf("Sair\n");
+
+			tecla = getch();
+
+			if (tecla == ENTER)
+				return 1;
+			else if (tecla == SETA_BAIXO)
+				posicao = 2;
+			else if (tecla == SETA_CIMA)
+				posicao = 3;
+		}else if (posicao == 2){
+			printf("\n\tBuscar valor:\n\n");
+			printf("Maior\n");
+			printf("\t%sMenor\n", ">>");
+			printf("Sair\n");
+
+			tecla = getch();
+
+			if (tecla == ENTER)
+				return 2;
+			else if (tecla == SETA_BAIXO)
+				posicao = 3;
+			else if (tecla == SETA_CIMA)
 				posicao = 1;
+		}else if (posicao == 3){
+			printf("\n\tBuscar valor:\n\n");
+			printf("Maior\n");
+			printf("Menor\n");
+			printf("\t%sSair\n", ">>");
+
+			tecla = getch();
+
+			if (tecla == ENTER)
+				return 3;
+			else if (tecla == SETA_BAIXO)
+				posicao = 1;
+			else if (tecla == SETA_CIMA)
+				posicao = 2;
 		}
 	}
 }
