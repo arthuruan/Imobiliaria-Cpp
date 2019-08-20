@@ -81,30 +81,44 @@ void Apartamento::EditaImovel(int itemEditado , int indice , string novaString ,
     for(Imovel *i : listaImovel){
         if(i->getId() == indice){
             switch(itemEditado)
-                case 1://
-                    setTipoOferta()
-                case 2://
+                case 1://TIPO OFERTA
+                    i->setTipoOferta(novoValor);
 
-                case 3://
+                case 2://VALOR R$
+                    i->setValor(novoValor);
 
-                case 4://
+                case 3://DESCRICAO DO IMOVEL
+                    i->setDescricao(novaString);
 
-                case 5://
+                case 4://LOGRADOURO
+                    i->getEndereco().setLogradouro(novaString);
 
-                case 6://
+                case 5://NUMERO
+                    i->getEndereco().setNumero(novoValor);
 
-                case 7://
+                case 6://BAIRRO
+                    i->getEndereco().setBairro(novaString);
+                    
+                case 7://CEP
+                    i->getEndereco().setCep(novaString);
 
-                case 8://
+                case 8://CIDADE
+                    i->getEndereco().setCidade(novaString);
 
-                case 9://
+                case 9://POSICAO
+                    i->setPosicao(novaString);
 
-                case 10://
+                case 10://NUMERO DE QUARTOS
+                    i->setNumQuartos(novoValor);
 
-                case 11://
-                
-                case 12://
+                case 11://VALOR CONDOMINIO
+                    i->setValorCondominio(novoValor);
 
+                case 12://VAGAS GARAGEM
+                    i->setVagasGaragem(novoValor);
+
+                case 13://AREA DO AP
+                    i->setArea(novoValor);
 
         }else{
             cout << "Imovel nao encontrado.";
