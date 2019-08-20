@@ -14,6 +14,7 @@ void SistemaImobiliaria::DeletaImovel(int indice){
     for(Imovel *i : listaImovel){
         if(i->getId() == indice){
             listaImovel.remove(i);
+            cout << "Imovel com id: " << indice << " deletado com sucesso.\n";
         }
     }
 }
@@ -35,8 +36,11 @@ list<Imovel*> SistemaImobiliaria::getDescricaoImoveis(string descricao){
         transform(stringMinuscula.begin(), stringMinuscula.end(), stringMinuscula.begin(), ::tolower);
         transform(stringMinuscula2.begin(), stringMinuscula2.end(), stringMinuscula2.begin(), ::tolower);
 
-        if(stringMinuscula.find(stringMinuscula2)>=0 && stringMinuscula.find(stringMinuscula2) < stringMinuscula.size())
+        if(stringMinuscula.find(stringMinuscula2)>=0 && stringMinuscula.find(stringMinuscula2) < stringMinuscula.size()){
             descricoes.push_back(i);
+        }else{
+            cout << "Imovel nao encontrado.\n";
+        }
     }
         return descricoes;
 }

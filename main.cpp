@@ -65,6 +65,7 @@ Imovel* Cadastroall(int tipoImovel){
         scanf("%lf", &areaTerreno);
         cout << "Digite a area construida: ";
         scanf("%lf", &areaConstruida);
+        FLUSH;
 
         cs->setTipoImovel(1);
         cs->setTipoOferta(tipoOferta);
@@ -95,6 +96,7 @@ Imovel* Cadastroall(int tipoImovel){
         FLUSH;
         cout << "Digite a area do AP: ";
         scanf("%lf", &areaAP);
+        FLUSH;
 
         ap->setTipoImovel(2);
         ap->setTipoOferta(tipoOferta);
@@ -116,6 +118,7 @@ Imovel* Cadastroall(int tipoImovel){
 
         cout << "Digite o tamanho do terreno: ";
         scanf("%lf", &areaTER);
+        FLUSH;
 
         ter->setTipoImovel(3);
         ter->setTipoOferta(tipoOferta);
@@ -138,6 +141,8 @@ int main(void) {
     Imovel *cs = new Casa();
     Imovel *ap = new Apartamento();
     Imovel *ter = new Terreno();
+    string des, bair, cid;
+    int tipo, ind;
 
 	while (1) {
 
@@ -195,14 +200,22 @@ int main(void) {
 			switch (m1.Menu4()){//menu secundario para saber o tipo da busca
                 case 1://busca por titulo
                     CLEAR; 
-                    
-                    //cout << s1.getDescricaoImoveis(desc);
+                    getline(cin, des);
+                    CLEAR;
+                    s1.exibe(s1.getDescricaoImoveis(des));
+                    PAUSE;
                     flagmenu = 0;
                     break;
                 case 2://busca por bairro
+                    CLEAR; 
+                    getline(cin, bair);
+                    CLEAR;
+                    s1.exibe(s1.getImoveisPorBairro(bair));
+                    PAUSE;
                     flagmenu = 0;
                     break;
                 case 3://busca por valor
+
                     flagmenu = 0;
                     break;
                 case 4://volta par ao menu principal
@@ -213,9 +226,15 @@ int main(void) {
 		case 4://opcao que exibe imovel para aluguel || venda
 			switch (m1.Menu5()){//menu secundario com opcoes de aluguel ou venda
                 case 1://opcao por aluguel
+                    CLEAR;
+                    s1.exibe(s1.getImoveisPorTipoAnuncio(1));
+                    PAUSE;
                     flagmenu = 0;
                     break;
                 case 2://opcao por venda
+                    CLEAR;
+                    s1.exibe(s1.getImoveisPorTipoAnuncio(2));
+                    PAUSE;
                     flagmenu = 0;
                     break;
                 case 3://volta menu principal
@@ -224,6 +243,10 @@ int main(void) {
 			}
 			break;
 		case 5://opcao para deletar um cadastro
+            CLEAR;
+            scanf("%d", &ind);
+            FLUSH;
+            s1.DeletaImovel(ind);
 			break;
 		case 6://opcao para editar um cadastro
 			break;
