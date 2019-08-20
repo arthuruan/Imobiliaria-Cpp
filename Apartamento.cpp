@@ -145,7 +145,5 @@ string Apartamento::toString()
           << "Vagas garagem: " << vagasGaragem << endl
           << "Area do apartamento: " << area << endl;
 
-    //system("ws");
-
     return strong.str();
 }

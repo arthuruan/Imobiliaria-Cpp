@@ -284,20 +284,20 @@ int main(void) {
                         break;
                 }
                 break;
-		case 5://opcao para deletar um cadastro
-            CLEAR;
-            cout << "Digite o indice do imovel que desesejas excluir: ";
-            scanf("%d", &ind);
-            FLUSH;
-            cout << endl;
-            s1.DeletaImovel(ind);
-            PAUSE;
-			break;
-		case 6://opcao para editar um cadastro
-			break;
-		case 7://encerrar o programa
-			flagmenu = 1;
-			break;
+            case 5://opcao para deletar um cadastro
+                CLEAR;
+                cout << "Digite o indice do imovel que desesejas excluir: ";
+                scanf("%d", &ind);
+                FLUSH;
+                cout << endl;
+                s1.DeletaImovel(ind);
+                PAUSE;
+                break;
+            case 6://opcao para editar um cadastro
+                break;
+            case 7://encerrar o programa
+                flagmenu = 1;
+                break;
 		}//fim do switch principal
 		if (flagmenu)//if criado para sair do while
 			break;
