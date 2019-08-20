@@ -269,6 +269,12 @@ int main(void) {
             flagmenu = 0;
 			break;
 		case 6://opcao para editar um cadastro
+            cout<<"Digite o indice do imovel que desejas editar: ";
+            scanf("%d", &ind);
+            FLUSH;
+            cout<<endl;
+                
+
 			break;
 		case 7://encerrar o programa
 			flagmenu = 1;
