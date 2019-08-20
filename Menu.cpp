@@ -265,9 +265,10 @@ int Menu::Menu4(){
 
 		if (posicao == 1){
 			printf("\n\tEscolha uma opcao:\n\n");
-			printf("\t%sTitulo\n", ">>");
+			printf("\t%sDescricao\n", ">>");
 			printf("Bairro\n");
 			printf("Valor\n");
+			printf("Tipo Imovel\n");
 			printf("Voltar\n");
 
 			tecla = getch();
@@ -277,12 +278,13 @@ int Menu::Menu4(){
 			else if (tecla == SETA_BAIXO)
 				posicao = 2;
 			else if (tecla == SETA_CIMA)
-				posicao = 3;
+				posicao = 5;
 		}else if (posicao == 2){
 			printf("\n\tEscolha uma opcao:\n\n");
-			printf("Titulo\n");
+			printf("Descricao\n");
 			printf("\t%sBairro\n", ">>");
 			printf("Valor\n");
+			printf("Tipo Imovel\n");
 			printf("Voltar\n");
 
 			tecla = getch();
@@ -295,9 +297,10 @@ int Menu::Menu4(){
 				posicao = 1;
 		}else if (posicao == 3){
 			printf("\n\tEscolha uma opcao:\n\n");
-			printf("Titulo\n");
+			printf("Descricao\n");
 			printf("Bairro\n");
 			printf("\t%sValor\n", ">>");
+			printf("Tipo Imovel\n");
 			printf("Voltar\n");
 
 			tecla = getch();
@@ -312,19 +315,36 @@ int Menu::Menu4(){
 				posicao = 2;
 		}else if (posicao == 4){
 			printf("\n\tEscolha uma opcao:\n\n");
-			printf("Titulo\n");
+			printf("Descricao\n");
 			printf("Bairro\n");
 			printf("Valor\n");
-			printf("\t%sVoltar\n", ">>");
+			printf("\t%sTipo Imovel\n", ">>");
+			printf("Voltar\n");
 
 			tecla = getch();
 
 			if (tecla == ENTER)
 				return 4;
 			else if (tecla == SETA_BAIXO)
-				posicao = 1;
+				posicao = 5;
 			else if (tecla == SETA_CIMA)
 				posicao = 3;
+		}else if(posicao == 5){
+			printf("\n\tEscolha uma opcao:\n\n");
+			printf("Descricao\n");
+			printf("Bairro\n");
+			printf("Valor\n");
+			printf("Tipo Imovel\n");
+			printf("\t%sVoltar\n", ">>");
+
+			tecla = getch();
+
+			if (tecla == ENTER)
+				return 5;
+			else if (tecla == SETA_BAIXO)
+				posicao = 1;
+			else if (tecla == SETA_CIMA)
+				posicao = 4;
 		}
 	}
 }
@@ -444,6 +464,43 @@ int Menu::Menu7(){
 			printf("\n\tConfirmar?\n\n");
 			printf("Sim\n");
 			printf("\t%sNao\n", ">>");
+
+			tecla = getch();
+
+			if (tecla == ENTER)
+				return 0;
+			else if (tecla == SETA_BAIXO)
+				posicao = 1;
+			else if (tecla == SETA_CIMA)
+				posicao = 1;
+		}
+	}
+}
+
+int Menu::Menu8(){
+    int tecla, posicao = 1;
+
+	while (1){
+
+		CLEAR;
+
+		if (posicao == 1){
+			printf("\n\tBuscar bairro:\n\n");
+			printf("\t%sAluguel\n", ">>");
+			printf("Venda\n");
+
+			tecla = getch();
+
+			if (tecla == ENTER)
+				return 1;
+			else if (tecla == SETA_BAIXO)
+				posicao = 2;
+			else if (tecla == SETA_CIMA)
+				posicao = 2;
+		}else if (posicao == 2){
+			printf("\n\tBuscar bairro\n\n");
+			printf("Aluguel\n");
+			printf("\t%sVenda\n", ">>");
 
 			tecla = getch();
 

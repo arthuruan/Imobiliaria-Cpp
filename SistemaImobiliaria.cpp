@@ -15,6 +15,8 @@ void SistemaImobiliaria::DeletaImovel(int indice){
         if(i->getId() == indice){
             listaImovel.remove(i);
             cout << "Imovel com id: " << indice << " deletado com sucesso.\n";
+        }else{
+            cout << "Imovel nao encontrado.";
         }
     }
 }
@@ -66,6 +68,8 @@ list<Imovel*> SistemaImobiliaria::getImoveisParaAlugarPorBairro(int tipoOferta,s
 
         if(i->getTipoOferta()==tipoOferta && (stringMinuscula.find(stringMinuscula2)>=0 && stringMinuscula.find(stringMinuscula2) < stringMinuscula.size()))
             imoveisPorAluguelBairro.push_back(i);
+        else
+            cout << "Imovel nao encontrado.\n";
     }
     return imoveisPorAluguelBairro;
 }
@@ -81,6 +85,8 @@ list<Imovel*> SistemaImobiliaria::getImoveisParaVenderPorBairro(int tipoOferta,s
 
         if(i->getTipoOferta()==tipoOferta && (stringMinuscula.find(stringMinuscula2)>=0 && stringMinuscula.find(stringMinuscula2) < stringMinuscula.size()))
             imoveisPorVendaBairro.push_back(i);
+        else
+            cout << "Imovel nao encontrado.\n";
     }
     return imoveisPorVendaBairro;
 }

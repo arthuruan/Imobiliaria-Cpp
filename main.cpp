@@ -31,7 +31,7 @@ Imovel* Cadastroall(int tipoImovel){
 //-----------------------------------------------------------//
 
     //imovel
-    cout << "Imovel para venda ou aluguel: ";//implementar com string, talvez
+    cout << "Imovel para aluguel(1) ou venda(2): ";//implementar com string, talvez
     scanf("%d", &tipoOferta);
     FLUSH;
     cout << "Valor do Imovel: ";
@@ -46,7 +46,7 @@ Imovel* Cadastroall(int tipoImovel){
     getline(cin, bairro);
     cout << "Digite o CEP: ";
     getline(cin, cep);
-    cout << "Digite a cidade:";
+    cout << "Digite a cidade: ";
     getline(cin, cidade);
     cout << "Digite o numero do imovel: ";
     scanf("%d", &numero);
@@ -207,18 +207,34 @@ int main(void) {
                     flagmenu = 0;
                     break;
                 case 2://busca por bairro
-                    CLEAR; 
-                    getline(cin, bair);
-                    CLEAR;
-                    s1.exibe(s1.getImoveisPorBairro(bair));
-                    PAUSE;
+                    switch(m1.Menu8()){
+                        case 1://alguel
+                            CLEAR;
+                            cout << "Digite o bairro: ";
+                            getline(cin, bair);
+                            cout << endl;
+                            s1.exibe(s1.getImoveisParaAlugarPorBairro(1, bair));
+                            PAUSE;
+                            break;
+                        case 2:
+                            CLEAR;
+                            cout << "Digite o bairro: ";
+                            getline(cin, bair);
+                            cout << endl;
+                            s1.exibe(s1.getImoveisParaVenderPorBairro(2, bair));
+                            PAUSE;
+                            break;
+                    }
                     flagmenu = 0;
                     break;
                 case 3://busca por valor
-
+                    
                     flagmenu = 0;
                     break;
-                case 4://volta par ao menu principal
+                case 4://tipo imovel
+                    flagmenu = 0;
+                    break;
+                case 5://volta par ao menu principal
                     flagmenu = 0;
                     break;
 			}
@@ -244,9 +260,13 @@ int main(void) {
 			break;
 		case 5://opcao para deletar um cadastro
             CLEAR;
+            cout << "Digite o indice do imovel que desesejas excluir: ";
             scanf("%d", &ind);
             FLUSH;
+            cout << endl;
             s1.DeletaImovel(ind);
+            PAUSE;
+            flagmenu = 0;
 			break;
 		case 6://opcao para editar um cadastro
 			break;

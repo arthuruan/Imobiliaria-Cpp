@@ -78,7 +78,7 @@ int Imovel::getId()
 
 void Imovel::setId(int id)
 {
-    this->id=id++;
+    this->id=id;
 }
 
 string Imovel::toString(){
