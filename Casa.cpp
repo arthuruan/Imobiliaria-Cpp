@@ -69,13 +69,13 @@ string Casa::toString()
 
     strong<< "Casa\n" << "Id: " << id << endl
           << "Tipo Oferta: " << tipoOferta << endl
-          << "Tipo Imovel: " << tipoImovel << endl
           << "Valor: " << valor << endl
+          << "Descricao: " << descricao << endl
           << "Logradouro: " << getEndereco().getLogradouro() << endl
           << "Numero: " << getEndereco().getNumero() << endl
           << "Bairro: " << getEndereco().getBairro() << endl
+          << "Cep: " << getEndereco().getCep() << endl
           << "Cidade: " << getEndereco().getCidade() << endl
-          << "Estado: " << getEndereco().getCep() << endl
           << "Numero de Pavimentos: " << numPavimentos << endl
           << "Numero de Quartos: " << numQuartos << endl
           << "Area do terreno: " << areaTerreno << endl

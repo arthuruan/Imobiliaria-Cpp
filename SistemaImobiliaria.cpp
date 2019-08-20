@@ -1,7 +1,7 @@
 #include "SistemaImobiliaria.h"
 #include <bits/stdc++.h>
 #define MAIOR_QUE 1
-#define MENOR_QUE 0
+#define MENOR_QUE 2
 
 SistemaImobiliaria::SistemaImobiliaria(){
     //ctor
@@ -16,7 +16,7 @@ void SistemaImobiliaria::DeletaImovel(int indice){
             listaImovel.remove(i);
             cout << "Imovel com id: " << indice << " deletado com sucesso.\n";
         }else{
-            cout << "Imovel nao encontrado.";
+            cout << "Imovel nao encontrado.\n";
         }
     }
 }
@@ -133,7 +133,7 @@ list<Imovel*> SistemaImobiliaria::getImoveisPorBairro(string bairro){
 
 }
 
-list<Imovel*> SistemaImobiliaria::getImoveisPorValor(float valor,int flag){
+list<Imovel*> SistemaImobiliaria::getImoveisPorValor(double valor,int flag){
     list<Imovel*> imoveisPorValor;
 
     for(Imovel *i: listaImovel){

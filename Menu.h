@@ -21,6 +21,7 @@ class Menu{
         int Menu6();
         int Menu7();
         int Menu8();
+        int Menu9();
 };
 
 #endif // MENU_H
