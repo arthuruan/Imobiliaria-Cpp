@@ -78,7 +78,7 @@ void Apartamento::setArea(double area)
 
 void Apartamento::EditaImovel(int itemEditado , int indice , string novaString , double novoValor)
 {
-    for(Imovel *i : listaImovel){
+    /*for(Imovel *i : listaImovel){
         if(i->getId() == indice){
             switch(itemEditado)
                 case 1://
@@ -109,7 +109,7 @@ void Apartamento::EditaImovel(int itemEditado , int indice , string novaString ,
         }else{
             cout << "Imovel nao encontrado.";
         }
-    }
+    }*/
 }
 
 string Apartamento::toString()
