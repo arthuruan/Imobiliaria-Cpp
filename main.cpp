@@ -355,8 +355,13 @@ int main(void) {
     GerenteDePersistencia *g1 = new GerenteDePersistencia();
     
     string des, bair, cid;
-    int tipo, ind, idEdita, itemEdit;
+    int tipo, ind;
     double val;
+
+
+	
+    listaGenerica = s1->getControladorArquivo().recuperaListaImoveis();
+	s1-> setListaImovel(listaGenerica);
 
 	while (1) {
 

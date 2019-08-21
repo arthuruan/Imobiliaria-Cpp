@@ -62,6 +62,10 @@ list<Imovel*> GerenteDePersistencia::recuperaListaImoveis() {
 			cs->setTipoOferta(tipoOferta);
 			cs->setDescricao(descricao);
 			cs->setValor(valor);
+            cs->setNumPavimentos(numPavimento);
+            cs->setNumQuartos(numQuartos);
+            cs->setAreaTerreno(area);
+            cs->setAreaContruida(areaConstruida);
 
 			listaImovel.push_back(cs);
 		}
@@ -86,7 +90,7 @@ list<Imovel*> GerenteDePersistencia::recuperaListaImoveis() {
 			ap->setValorCondominio(valorCondominio);
 			ap->setVagasGaragem(vagasGaragem);
 			ap->setArea(area);
-            
+
 			listaImovel.push_back(ap);
 		}
 

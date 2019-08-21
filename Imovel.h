@@ -36,10 +36,7 @@ class Imovel{
         void setDescricao(string descricao);
         void setId(int id);
 
-        virtual void EditaImovel();
         virtual string toString();
-        virtual string toStringEdit();
-        
 		virtual string toStringArquivo();
 };
 

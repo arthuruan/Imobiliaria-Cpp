@@ -84,32 +84,11 @@ string Casa::toString()
     return strong.str();
 }
 
-string Casa::toStringEdit()//addnumeros
-{
-    stringstream edit;
-
-    edit<<"Id: " << id << endl
-          << "1 - Tipo Oferta: " << tipoOferta << endl
-          << "2 - Valor: " << valor << endl
-          << "3 - Descricao: " << descricao << endl
-          << "4 - Logradouro: " << getEndereco().getLogradouro() << endl
-          << "5 - Numero: " << getEndereco().getNumero() << endl
-          << "6 - Bairro: " << getEndereco().getBairro() << endl
-          << "7 - Cep: " << getEndereco().getCep() << endl
-          << "8 - Cidade: " << getEndereco().getCidade() << endl
-          << "9 - Numero de Pavimentos: " << numPavimentos << endl
-          << "10 - Numero de Quartos: " << numQuartos << endl
-          << "11 - Area do terreno: " << areaTerreno << endl
-          << "12 - Area construida: " << areaConstruida << endl;
-
-    return edit.str();
-}
-
 string Casa::toStringArquivo() {
 	stringstream arquivo;
 
-	arquivo << id << endl
-		<< tipoImovel << endl
+	arquivo << tipoImovel << endl
+		<< id << endl
 		<< tipoOferta << endl
 		<< valor << endl
 		<< descricao << endl

@@ -98,33 +98,11 @@ string Apartamento::toString()
     return strong.str();
 }
 
-string Apartamento::toStringEdit()
-{
-    stringstream strong;
-
-    strong<< "Id: " << id << endl
-          << "1 - Tipo Oferta: " << tipoOferta << endl
-          << "2 - Valor: " << valor << endl
-          << "3 - Descricao: " << descricao << endl
-          << "4 - Logradouro: " << getEndereco().getLogradouro() << endl
-          << "5 - Numero: " << getEndereco().getNumero() << endl
-          << "6 - Bairro: " << getEndereco().getBairro() << endl
-          << "7 - Cep: " << getEndereco().getCep() << endl
-          << "8 - Cidade: " << getEndereco().getCidade() << endl
-          << "9 - Posicao do apartamento: " << posicao << endl
-          << "10 - Numero de quartos: " << numQuartos << endl
-          << "11 - Valor do Condominio: " << valorCondominio << endl
-          << "12 - Vagas garagem: " << vagasGaragem << endl
-          << "13 - Area do apartamento: " << area << endl;
-
-    return strong.str();
-}
-
 string Apartamento::toStringArquivo() {
 	stringstream arquivo;
 
-	arquivo << id << endl
-		<< tipoImovel << endl
+	arquivo << tipoImovel << endl
+		<< id << endl
 		<< tipoOferta << endl
 		<< valor << endl
 		<< descricao << endl

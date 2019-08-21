@@ -66,11 +66,6 @@ void Imovel::setDescricao(string descricao)
     this->descricao = descricao;
 }
 
-void Imovel::EditaImovel()
-{
-
-}
-
 int Imovel::getId()
 {
     return id;
@@ -82,10 +77,6 @@ void Imovel::setId(int id)
 }
 
 string Imovel::toString(){
-
-}
-
-string Imovel::toStringEdit(){
 
 }
 

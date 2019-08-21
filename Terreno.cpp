@@ -38,29 +38,11 @@ string Terreno::toString()
     return strong.str();
 }
 
-string Terreno::toStringEdit()
-{
-    stringstream strong;
-
-    strong<< "Id: " << id << endl
-          << "1 - Tipo Oferta: " << tipoOferta << endl
-          << "2 - Valor: " << valor << endl
-          << "3 - Descricao: " << descricao << endl
-          << "4 - Logradouro: " << getEndereco().getLogradouro() << endl
-          << "5 - Numero: " << getEndereco().getNumero() << endl
-          << "6 - Bairro: " << getEndereco().getBairro() << endl
-          << "7 - Cep: " << getEndereco().getCep() << endl
-          << "8 - Cidade: " << getEndereco().getCidade() << endl
-          << "9 - Area do terreno: " << area << endl;
-
-    return strong.str();
-}
-
 string Terreno::toStringArquivo() {
 	stringstream arquivo;
 
-	arquivo << id << endl
-		<< tipoImovel << endl
+	arquivo << tipoImovel << endl
+		<< id << endl
 		<< tipoOferta << endl
 		<< valor << endl
 		<< descricao << endl
