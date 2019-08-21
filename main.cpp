@@ -152,9 +152,9 @@ int main(void) {
     double val;
 
 
-	listaGenerica = s1->getControladorArquivo()-> recuperaListaImoveis();
-	s1-> setListaImoveis(listaGenerica);
-	s1-> exibe(s1->getImoveis());
+	
+    listaGenerica = s1->getControladorArquivo().recuperaListaImoveis();
+	s1-> setListaImovel(listaGenerica);
 
 	while (1) {
 

@@ -1,7 +1,7 @@
 #ifndef GERENTEDEPERSISTENCIA_H
 #define GERENTEDEPERSISTENCIA_H
 
-#include "SistemaImobiliaria.h"
+#include "Imovel.h"
 #include <list>
 
 

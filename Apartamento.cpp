@@ -76,56 +76,6 @@ void Apartamento::setArea(double area)
         this ->area = area;
 }
 
-void Apartamento::EditaImovel(int itemEditado , int indice , string novaString , double novoValor)
-{
-    /*for(Imovel *i : listaImovel){
-        if(i->getId() == indice){
-            switch(itemEditado)
-                case 1://TIPO OFERTA
-                    i->setTipoOferta(novoValor);
-
-                case 2://VALOR R$
-                    i->setValor(novoValor);
-
-                case 3://DESCRICAO DO IMOVEL
-                    i->setDescricao(novaString);
-
-                case 4://LOGRADOURO
-                    i->getEndereco().setLogradouro(novaString);
-
-                case 5://NUMERO
-                    i->getEndereco().setNumero(novoValor);
-
-                case 6://BAIRRO
-                    i->getEndereco().setBairro(novaString);
-                    
-                case 7://CEP
-                    i->getEndereco().setCep(novaString);
-
-                case 8://CIDADE
-                    i->getEndereco().setCidade(novaString);
-
-                case 9://POSICAO
-                    i->setPosicao(novaString);
-
-                case 10://NUMERO DE QUARTOS
-                    i->setNumQuartos(novoValor);
-
-                case 11://VALOR CONDOMINIO
-                    i->setValorCondominio(novoValor);
-
-                case 12://VAGAS GARAGEM
-                    i->setVagasGaragem(novoValor);
-
-                case 13://AREA DO AP
-                    i->setArea(novoValor);
-
-        }else{
-            cout << "Imovel nao encontrado.";
-        }
-    }*/
-}
-
 string Apartamento::toString()
 {
     stringstream strong;
@@ -151,8 +101,8 @@ string Apartamento::toString()
 string Apartamento::toStringArquivo() {
 	stringstream arquivo;
 
-	arquivo << id << endl
-		<< tipoImovel << endl
+	arquivo << tipoImovel << endl
+		<< id << endl
 		<< tipoOferta << endl
 		<< valor << endl
 		<< descricao << endl

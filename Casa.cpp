@@ -87,8 +87,8 @@ string Casa::toString()
 string Casa::toStringArquivo() {
 	stringstream arquivo;
 
-	arquivo << id << endl
-		<< tipoImovel << endl
+	arquivo << tipoImovel << endl
+		<< id << endl
 		<< tipoOferta << endl
 		<< valor << endl
 		<< descricao << endl

@@ -28,7 +28,7 @@ class Apartamento: public Imovel{
 
         string toString();
 		string toStringArquivo();
-        void EditaImovel(int itemEditado , int indice , string novaString , double novoValor);
+        
 };
 
 #endif // APARTAMENTO_H
