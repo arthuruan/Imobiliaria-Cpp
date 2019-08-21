@@ -50,7 +50,7 @@ Imovel* Cadastroall(int tipoImovel){
     cout << "Digite o CEP: ";
     getline(cin, cep);
     cout << "Digite a cidade: ";
-    getline(cin, cidade);
+    getline(cin, cidade); 
 
     if(tipoImovel == 1){//Casa
         Casa *cs = new Casa();
