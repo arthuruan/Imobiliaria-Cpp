@@ -37,9 +37,13 @@ list<Imovel *> GerenteDePersistencia::recuperaListaImoveis(){
         lerArquivo >> tipoImovel;
         lerArquivo >> valor;
         lerArquivo >> tipoOferta;
+		lerArquivo.ignore();
+
         getline(lerArquivo, descricao);
         getline(lerArquivo, logradouro);
         lerArquivo >> numero;
+		lerArquivo.ignore();
+
         getline(lerArquivo, bairro);
         getline(lerArquivo, cidade);
         getline(lerArquivo, cep);
@@ -49,6 +53,7 @@ list<Imovel *> GerenteDePersistencia::recuperaListaImoveis(){
             lerArquivo >> numQuartos;
             lerArquivo >> area;
             lerArquivo >> areaConstruida;
+			lerArquivo.ignore();
 
             Casa *cs = new Casa();
 
@@ -67,6 +72,7 @@ list<Imovel *> GerenteDePersistencia::recuperaListaImoveis(){
             lerArquivo >> valorCondominio;
             lerArquivo >> vagasGaragem;
             lerArquivo >> area;
+			lerArquivo.ignore();
 
             Apartamento *ap = new Apartamento();
 
@@ -86,6 +92,7 @@ list<Imovel *> GerenteDePersistencia::recuperaListaImoveis(){
 
         if(tipoImovel == 3){
             lerArquivo >> area;
+			lerArquivo.ignore();
 
             Terreno *ter = new Terreno();
 
