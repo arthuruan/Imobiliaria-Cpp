@@ -28,7 +28,7 @@ list<Imovel *> GerenteDePersistencia::recuperaListaImoveis(){
     lerArquivo.open("imoveisSalvos.txt", ios::in);
 
     if(!lerArquivo.is_open( )){
-        cout << "Não foi possível abrir arquivo!!\n";
+        cout << "Nao foi possivel abrir arquivo!!\n";
         lerArquivo.close();
     }
 
@@ -110,7 +110,7 @@ void GerenteDePersistencia::salvaListaImoveis(list<Imovel*> listaImovel)
     salvaArquivo.open("imoveisSalvos.txt", ios::out);
     // Verifica se o arquivo foi aberto corretamente
     if(!salvaArquivo.is_open( )){
-        cout << "Não foi possível abrir arquivo!!\n";
+        cout << "Nï¿½o foi possï¿½vel abrir arquivo!!\n";
         salvaArquivo.close();
         return;
     }

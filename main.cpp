@@ -3,6 +3,7 @@
 #include "Casa.h"
 #include "Apartamento.h"
 #include "Terreno.h"
+#include "GerenteDePersistencia.h"
 
 static int id = 1;
 
@@ -138,10 +139,12 @@ int main(void) {
 	int flagmenu = 0;//flag criada para facilitar a navegacao entre o menu principal e os secundarios
 
 	Menu m1 = Menu();
-    SistemaImobiliaria s1 = SistemaImobiliaria();
+    SistemaImobiliaria *s1 = new SistemaImobiliaria();
     Imovel *cs = new Casa();
     Imovel *ap = new Apartamento();
     Imovel *ter = new Terreno();
+    GerenteDePersistencia *g1 = new GerenteDePersistencia();
+    
     string des, bair, cid;
     int tipo, ind;
     double val;
@@ -156,7 +159,8 @@ int main(void) {
                         CLEAR;
                         cs = Cadastroall(1);
                         if(m1.Menu3()){//menu que pede a confimacao para salvar o cadastro
-                            s1.CadastraImovel(cs);
+                            s1->CadastraImovel(cs);
+                            g1->salvaListaImoveis(s1->getImoveis());
                         }else{
                             break;
                         }
@@ -166,7 +170,7 @@ int main(void) {
                         CLEAR;
                         ap = Cadastroall(2);
                         if(m1.Menu3()){//menu que pede a confimacao para salvar o cadastro
-                            s1.CadastraImovel(ap);
+                            s1->CadastraImovel(ap);
                         }else{
                             break;
                         }
@@ -175,7 +179,7 @@ int main(void) {
                         CLEAR;
                         ter = Cadastroall(3);
                         if(m1.Menu3()){//menu que pede a confimacao para salvar o cadastro
-                            s1.CadastraImovel(ter);
+                            s1->CadastraImovel(ter);
                         }else{
                             break;
                         }
@@ -186,7 +190,7 @@ int main(void) {
                 break;
             case 2://opcao consultar imoveis disponivel
                 CLEAR;
-                s1.exibe(s1.getImoveis());
+                s1->exibe(s1->getImoveis());
                 PAUSE;
                 break;
             case 3://opcao de busca
@@ -196,7 +200,7 @@ int main(void) {
                         cout << "Digite a descricao: "; 
                         getline(cin, des);
                         CLEAR;
-                        s1.exibe(s1.getDescricaoImoveis(des));
+                        s1->exibe(s1->getDescricaoImoveis(des));
                         PAUSE;
                         break;
                     case 2://busca por bairro
@@ -206,7 +210,7 @@ int main(void) {
                                 cout << "Digite o bairro: ";
                                 getline(cin, bair);
                                 cout << endl;
-                                s1.exibe(s1.getImoveisParaAlugarPorBairro(1, bair));
+                                s1->exibe(s1->getImoveisParaAlugarPorBairro(1, bair));
                                 PAUSE;
                                 break;
                             case 2://venda
@@ -214,7 +218,7 @@ int main(void) {
                                 cout << "Digite o bairro: ";
                                 getline(cin, bair);
                                 cout << endl;
-                                s1.exibe(s1.getImoveisParaVenderPorBairro(2, bair));
+                                s1->exibe(s1->getImoveisParaVenderPorBairro(2, bair));
                                 PAUSE;
                                 break;
                             case 3:
@@ -228,7 +232,7 @@ int main(void) {
                                 cout << "Digite o valor: ";
                                 scanf("%lf", &val);
                                 FLUSH;
-                                s1.exibe(s1.getImoveisPorValor(val, 1));
+                                s1->exibe(s1->getImoveisPorValor(val, 1));
                                 PAUSE;
                                 break;
                             case 2://menor
@@ -236,7 +240,7 @@ int main(void) {
                                 cout << "Digite o valor: ";
                                 scanf("%lf", &val);
                                 FLUSH;
-                                s1.exibe(s1.getImoveisPorValor(val, 2));
+                                s1->exibe(s1->getImoveisPorValor(val, 2));
                                 PAUSE;
                                 break;
                             case 3:
@@ -247,17 +251,17 @@ int main(void) {
                         switch(m1.Menu2()){
                             case 1://casa
                                 CLEAR;
-                                s1.exibe(s1.getImoveisPorTipo(1));
+                                s1->exibe(s1->getImoveisPorTipo(1));
                                 PAUSE;
                                 break;
                             case 2://apartamento
                                 CLEAR;
-                                s1.exibe(s1.getImoveisPorTipo(2));
+                                s1->exibe(s1->getImoveisPorTipo(2));
                                 PAUSE;
                                 break;
                             case 3://terreno
                                 CLEAR;
-                                s1.exibe(s1.getImoveisPorTipo(3));
+                                s1->exibe(s1->getImoveisPorTipo(3));
                                 PAUSE;
                                 break;
                             case 4:
@@ -272,12 +276,12 @@ int main(void) {
                 switch (m1.Menu5()){//menu secundario com opcoes de aluguel ou venda
                     case 1://opcao por aluguel
                         CLEAR;
-                        s1.exibe(s1.getImoveisPorTipoAnuncio(1));
+                        s1->exibe(s1->getImoveisPorTipoAnuncio(1));
                         PAUSE;
                         break;
                     case 2://opcao por venda
                         CLEAR;
-                        s1.exibe(s1.getImoveisPorTipoAnuncio(2));
+                        s1->exibe(s1->getImoveisPorTipoAnuncio(2));
                         PAUSE;
                         break;
                     case 3://volta menu principal
@@ -290,7 +294,8 @@ int main(void) {
                 scanf("%d", &ind);
                 FLUSH;
                 cout << endl;
-                s1.DeletaImovel(ind);
+                s1->DeletaImovel(ind);
+                g1->salvaListaImoveis(s1->getImoveis());
                 PAUSE;
                 break;
             case 6://opcao para editar um cadastro
