@@ -11,10 +11,11 @@ void SistemaImobiliaria::CadastraImovel(Imovel* im){
 }
 
 void SistemaImobiliaria::DeletaImovel(int indice){
-    for(Imovel *i : listaImovel){
-        if(i->getId() == indice){
-            listaImovel.remove(i);
+    for(list<Imovel *>::iterator i = listaImovel.begin(); i != listaImovel.end(); i++){
+        if((*i)->getId() == indice){
+            i = listaImovel.erase(i);
             cout << "Imovel com id: " << indice << " deletado com sucesso.\n";
+            break;
         }else{
             cout << "Imovel nao encontrado.\n";
         }
