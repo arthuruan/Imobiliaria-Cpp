@@ -12,7 +12,7 @@ class SistemaImobiliaria{
         SistemaImobiliaria();
         void CadastraImovel(Imovel *im);
         void DeletaImovel(int indice);
-		void setListaDeImoveis(list<Imovel*> list);
+		void setListaImoveis(list<Imovel*> list);
         list<Imovel*> getImoveis();
         list<Imovel*> getDescricaoImoveis(string descricao);//"titulo" do imovel
         list<Imovel*> getImoveisPorTipo(int tipo);

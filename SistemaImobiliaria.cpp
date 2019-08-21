@@ -22,7 +22,7 @@ void SistemaImobiliaria::DeletaImovel(int indice){
     }
 }
 
-void SistemaImobiliaria::setListaDeImoveis(list<Imovel*> list){
+void SistemaImobiliaria::setListaImoveis(list<Imovel*> list){
 	listaImovel = list;
 }
 
@@ -184,7 +184,6 @@ void SistemaImobiliaria::exibeEdit(list<Imovel *> list){
      for(Imovel *i : list){
         cout << i->toStringEdit() << endl;
     }
-}
 }
 
 GerenteDePersistencia SistemaImobiliaria::getControladorArquivo(){

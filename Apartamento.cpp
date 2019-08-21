@@ -76,6 +76,56 @@ void Apartamento::setArea(double area)
         this ->area = area;
 }
 
+void Apartamento::EditaImovel(int itemEditado , int indice , string novaString , double novoValor)
+{
+    /*for(Imovel *i : listaImovel){
+        if(i->getId() == indice){
+            switch(itemEditado)
+                case 1://TIPO OFERTA
+                    i->setTipoOferta(novoValor);
+
+                case 2://VALOR R$
+                    i->setValor(novoValor);
+
+                case 3://DESCRICAO DO IMOVEL
+                    i->setDescricao(novaString);
+
+                case 4://LOGRADOURO
+                    i->getEndereco().setLogradouro(novaString);
+
+                case 5://NUMERO
+                    i->getEndereco().setNumero(novoValor);
+
+                case 6://BAIRRO
+                    i->getEndereco().setBairro(novaString);
+                    
+                case 7://CEP
+                    i->getEndereco().setCep(novaString);
+
+                case 8://CIDADE
+                    i->getEndereco().setCidade(novaString);
+
+                case 9://POSICAO
+                    i->setPosicao(novaString);
+
+                case 10://NUMERO DE QUARTOS
+                    i->setNumQuartos(novoValor);
+
+                case 11://VALOR CONDOMINIO
+                    i->setValorCondominio(novoValor);
+
+                case 12://VAGAS GARAGEM
+                    i->setVagasGaragem(novoValor);
+
+                case 13://AREA DO AP
+                    i->setArea(novoValor);
+
+        }else{
+            cout << "Imovel nao encontrado.";
+        }
+    }*/
+}
+
 string Apartamento::toString()
 {
     stringstream strong;
@@ -94,28 +144,6 @@ string Apartamento::toString()
           << "Valor do Condominio: " << valorCondominio << endl
           << "Vagas garagem: " << vagasGaragem << endl
           << "Area do apartamento: " << area << endl;
-
-    return strong.str();
-}
-
-string Apartamento::toStringEdit()
-{
-    stringstream strong;
-
-    strong<< "Id: " << id << endl
-          << "1 - Tipo Oferta: " << tipoOferta << endl
-          << "2 - Valor: " << valor << endl
-          << "3 - Descricao: " << descricao << endl
-          << "4 - Logradouro: " << getEndereco().getLogradouro() << endl
-          << "5 - Numero: " << getEndereco().getNumero() << endl
-          << "6 - Bairro: " << getEndereco().getBairro() << endl
-          << "7 - Cep: " << getEndereco().getCep() << endl
-          << "8 - Cidade: " << getEndereco().getCidade() << endl
-          << "9 - Posicao do apartamento: " << posicao << endl
-          << "10 - Numero de quartos: " << numQuartos << endl
-          << "11 - Valor do Condominio: " << valorCondominio << endl
-          << "12 - Vagas garagem: " << vagasGaragem << endl
-          << "13 - Area do apartamento: " << area << endl;
 
     return strong.str();
 }

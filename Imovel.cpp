@@ -85,10 +85,6 @@ string Imovel::toString(){
 
 }
 
-string Imovel::toStringEdit(){
-
-}
-
 string Imovel::toStringArquivo() {
 
 }
