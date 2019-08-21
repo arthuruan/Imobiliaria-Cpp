@@ -1,6 +1,9 @@
 #ifndef SISTEMAIMOBILIARIA_H
 #define SISTEMAIMOBILIARIA_H
 #include "Imovel.h"
+#include "Casa.h"
+#include "Apartamento.h"
+#include "Terreno.h"
 #include <list>
 
 class SistemaImobiliaria{
@@ -8,6 +11,7 @@ class SistemaImobiliaria{
         SistemaImobiliaria();
         void CadastraImovel(Imovel *im);
         void DeletaImovel(int indice);
+        //void EditaImovel(int itemEditado , int indice , string novaString , double novoValor);
         list<Imovel*> getImoveis();
         list<Imovel*> getDescricaoImoveis(string descricao);//"titulo" do imovel
         list<Imovel*> getImoveisPorTipo(int tipo);
@@ -17,8 +21,10 @@ class SistemaImobiliaria{
         list<Imovel*> getImoveisPorCidade(string cidade);
         list<Imovel*> getImoveisPorValor(double valor, int flag);
         list<Imovel*> getImoveisPorTipoAnuncio(int tipo);
+        list<Imovel*> getImoveisID(int id);
 
         void exibe(list<Imovel *> list);
+        void exibeEdit(list<Imovel *> list);
 
     private:
         list<Imovel*> listaImovel;

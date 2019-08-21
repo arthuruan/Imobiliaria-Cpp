@@ -13,5 +13,6 @@ class Terreno : public Imovel{
         void setArea(double area);
 
         string toString();
+        string toStringEdit();
 };
 #endif // TERRENO_H

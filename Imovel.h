@@ -39,6 +39,8 @@ class Imovel{
         virtual void EditaImovel();
         //virtual void print();
         virtual string toString();
+        virtual string toStringEdit();
+        
 };
 
 #endif // IMOVEL_H
