@@ -193,6 +193,15 @@ void SistemaImobiliaria::exibe(list<Imovel *> list){
     }
 }
 
+<<<<<<< HEAD
+=======
+void SistemaImobiliaria::exibeEdit(list<Imovel *> list){
+     for(Imovel *i : list){
+        cout << i->toStringEdit() << endl;
+    }
+}
+
+>>>>>>> 2d89938fb6237e67b48c42df34f7b12b0b52a887
 GerenteDePersistencia SistemaImobiliaria::getControladorArquivo(){
 	return controladorArquivo;
 }
