@@ -135,7 +135,7 @@ Imovel* Cadastroall(int tipoImovel){
     }
 }
 //implementar sabendo que user ja inseriu tipoimovel e indice
-Imovel* EditaImovel(int tipoImovel, int itemEdit){
+void EditaImovel(int itemEdit, Imovel* im){
     //-------------------------------------------------------//
     //endereco                                               //
     string logradouro, bairro, cep, cidade;                  //
@@ -156,197 +156,191 @@ Imovel* EditaImovel(int tipoImovel, int itemEdit){
     int vagasGaragem;                                        //
     double areaAP;                                           //
     //terreno                                                //
-    double areaTER;                                          //
+    double areaTER;                                       //
     //-------------------------------------------------------//
-
-    if(tipoImovel == 1)//CASA
-    {
-        Casa *cs = new Casa();
-        
-
+    
+    if(im->getTipoImovel() == 1)//CASA
+    {   
         switch(itemEdit)
         {
             case 1://TIPO OFERTA
                 scanf("%d", &tipoOferta);
                 FLUSH;
-                cs->setTipoOferta(tipoOferta);
+                im->setTipoOferta(tipoOferta);
                 break;
             case 2://VALOR R$
                 scanf("%lf", &valor);
                 FLUSH;
-                cs->setValor(valor);
+                im->setValor(valor);
                 break;
             case 3://DESCRICAO DO IMOVEL
                 getline(cin, descricao);
-                cs->setDescricao(descricao);
+                im->setDescricao(descricao);
                 break;
             case 4://LOGRADOURO
                 getline(cin, logradouro);
-                cs->getEndereco().setLogradouro(logradouro);
+                im->getEndereco().setLogradouro(logradouro);
                 break;
             case 5://NUMERO
                 scanf("%d", &numero);
                 FLUSH;
-                cs->getEndereco().setNumero(numero);
+                im->getEndereco().setNumero(numero);
                 break;
             case 6://BAIRRO
                 getline(cin, bairro);
-                cs->getEndereco().setBairro(bairro);
+                im->getEndereco().setBairro(bairro);
                 break;
             case 7://CEP
                 getline(cin, cep);
-                cs->getEndereco().setCep(cep);
+                im->getEndereco().setCep(cep);
                 break;
             case 8://CIDADE
                 getline(cin, cidade);
-                cs->getEndereco().setCidade(cidade);
+                im->getEndereco().setCidade(cidade);
                 break;
             case 9://PAVIMENTOS
                 scanf("%d", &numPavimentos);
                 FLUSH;
-                cs->setNumPavimentos(numPavimentos);
+                ((Casa*)im)->setNumPavimentos(numPavimentos);
                 break;
             case 10://NUMERO DE QUARTOS
                 scanf("%d", &numQuartos);
                 FLUSH;
-                cs->setNumQuartos(numQuartos);
+                ((Casa*)im)->setNumQuartos(numQuartos);
                 break;
             case 11://AREA DO TERRENO
                 scanf("%lf", &areaTerreno);
                 FLUSH;
-                cs->setAreaTerreno(areaTerreno);
+                ((Casa*)im)->setAreaTerreno(areaTerreno);
                 break;
             case 12://AREA CONSTRUIDA
                 scanf("%lf", &areaConstruida);
                 FLUSH;
-                cs->setAreaContruida(areaConstruida);
+                ((Casa*)im)->setAreaContruida(areaConstruida);
                 break;
             default:
                 cout<<"opcao invalida"<<endl;
                 break; 
         }
-    return cs; 
-    }else if(tipoImovel == 2)//APARTAMENTO
+    
+    }else if(im->getTipoImovel() == 2)//APARTAMENTO
     {
-        Apartamento * ap = new Apartamento();
 
         switch(itemEdit)
         {
             case 1://TIPO OFERTA
                 scanf("%d", &tipoOferta);
                 FLUSH;
-                ap->setTipoOferta(tipoOferta);
+                im->setTipoOferta(tipoOferta);
                 break;
             case 2://VALOR R$
                 scanf("%lf", &valor);
                 FLUSH;
-                ap->setValor(valor);
+                im->setValor(valor);
                 break;
             case 3://DESCRICAO DO IMOVEL
                 getline(cin, descricao);
-                ap->setDescricao(descricao);
+                im->setDescricao(descricao);
                 break;
             case 4://LOGRADOURO
                 getline(cin, logradouro);
-                ap->getEndereco().setLogradouro(logradouro);
+                im->getEndereco().setLogradouro(logradouro);
                 break;
             case 5://NUMERO
                 scanf("%d", &numero);
                 FLUSH;
-                ap->getEndereco().setNumero(numero);
+                im->getEndereco().setNumero(numero);
                 break;
             case 6://BAIRRO
                 getline(cin, bairro);
-                ap->getEndereco().setBairro(bairro);
+                im->getEndereco().setBairro(bairro);
                 break;
             case 7://CEP
                 getline(cin, cep);
-                ap->getEndereco().setCep(cep);
+                im->getEndereco().setCep(cep);
                 break;
             case 8://CIDADE
                 getline(cin, cidade);
-                ap->getEndereco().setCidade(cidade);
+                im->getEndereco().setCidade(cidade);
                 break;
             case 9://POSICAO
                 getline(cin, posicao);
-                ap->setPosicao(posicao);
+                ((Apartamento *)im)->setPosicao(posicao);
                 break;
             case 10://NUMERO DE QUARTOS
                 scanf("%d", &numQuartosAP);
                 FLUSH;
-                ap->setNumQuartos(numQuartosAP);
+                ((Apartamento *)im)->setNumQuartos(numQuartosAP);
                 break;
             case 11://VALOR CONDOMINIO
                 scanf("%lf", &valorCondominio);
                 FLUSH;
-                ap->setValorCondominio(valorCondominio);
+                ((Apartamento *)im)->setValorCondominio(valorCondominio);
                 break;
             case 12://VAGAS GARAGEM
                 scanf("%d", &vagasGaragem);
                 FLUSH;
-                ap->setVagasGaragem(vagasGaragem);
+                ((Apartamento *)im)->setVagasGaragem(vagasGaragem);
                 break;
             case 13://AREA DO AP
                 scanf("%lf", &areaAP);
                 FLUSH;
-                ap->setArea(areaAP);
+                ((Apartamento *)im)->setArea(areaAP);
                 break;
             default:
                 cout<<"opcao invalida"<<endl;
                 break; 
         }
-    return ap;
-    }else if(tipoImovel == 3)//TERRENO
+    
+    }else if(im->getTipoImovel() == 3)//TERRENO
     {
-        Terreno *ter = new Terreno;
 
         switch(itemEdit)
         {
             case 1://TIPO OFERTA
                 scanf("%d", &tipoOferta);
                 FLUSH;
-                ter->setTipoOferta(tipoOferta);
+                im->setTipoOferta(tipoOferta);
                 break;
             case 2://VALOR R$
                 scanf("%lf", &valor);
                 FLUSH;
-                ter->setValor(valor);
+                im->setValor(valor);
                 break;
             case 3://DESCRICAO DO IMOVEL
                 getline(cin, descricao);
-                ter->setDescricao(descricao);
+                im->setDescricao(descricao);
                 break;
             case 4://LOGRADOURO
                 getline(cin, logradouro);
-                ter->getEndereco().setLogradouro(logradouro);
+                im->getEndereco().setLogradouro(logradouro);
                 break;
             case 5://NUMERO
                 scanf("%d", &numero);
                 FLUSH;
-                ter->getEndereco().setNumero(numero);
+                im->getEndereco().setNumero(numero);
                 break;
             case 6://BAIRRO
                 getline(cin, bairro);
-                ter->getEndereco().setBairro(bairro);
+                im->getEndereco().setBairro(bairro);
                 break;
             case 7://CEP
                 getline(cin, cep);
-                ter->getEndereco().setCep(cep);
+                im->getEndereco().setCep(cep);
                 break;
             case 8://CIDADE
                 getline(cin, cidade);
-                ter->getEndereco().setCidade(cidade);
+                im->getEndereco().setCidade(cidade);
                 break;
             case 9://AREA DO TERRENO
                 scanf("%lf", &areaTER);
                 FLUSH;
-                ter->setArea(areaTER);
+                ((Terreno*)im)->setArea(areaTER);
                 break;
             default:
                 cout<<"opcao invalida"<<endl;
                 break;
         }
-    return ter;
     }
 }
 
@@ -531,16 +525,51 @@ int main(void) {
                         cout<<"Qual item desejas editar?"<<endl;
                         scanf("%d", &itemEdit);
                         FLUSH;
-                        cs = EditaImovel(1, itemEdit);
-                        s1->CadastraImovel(cs);
-                        s1->DeletaImovel(idEdita);
+                        PAUSE;
+
+                        if(idEdita == cs ->getId())
+                            EditaImovel(itemEdit,cs);
+                        
+                        //s1->DeletaImovel(idEdita);
 
                         break;
                     case 2:
-
+                        CLEAR;
+                        s1->exibe(s1->getImoveisPorTipo(2));
+                        PAUSE;
+                        CLEAR;
+                        cout<<"Insira o Id do imovel que desejas editar: "<<endl;
+                        scanf("%d", &idEdita);
+                        FLUSH;
+                        CLEAR;
+                        s1->exibeEdit(s1->getImoveisID(idEdita));
+                        //cs->toStringEdit();
+                        PAUSE;
+                        cout<<"Qual item desejas editar?"<<endl;
+                        scanf("%d", &itemEdit);
+                        FLUSH;
+                        PAUSE;
+                        if(idEdita == ap ->getId())
+                            EditaImovel(itemEdit,ap);
                         break;
                     case 3:
-
+                        CLEAR;
+                        s1->exibe(s1->getImoveisPorTipo(3));
+                        PAUSE;
+                        CLEAR;
+                        cout<<"Insira o Id do imovel que desejas editar: "<<endl;
+                        scanf("%d", &idEdita);
+                        FLUSH;
+                        CLEAR;
+                        s1->exibeEdit(s1->getImoveisID(idEdita));
+                        //cs->toStringEdit();
+                        PAUSE;
+                        cout<<"Qual item desejas editar?"<<endl;
+                        scanf("%d", &itemEdit);
+                        FLUSH;
+                        PAUSE;
+                        if(idEdita == ter ->getId())
+                            EditaImovel(itemEdit,ter);
                         break;
                     case 4:
                         break;
