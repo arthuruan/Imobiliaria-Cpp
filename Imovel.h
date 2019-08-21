@@ -38,6 +38,7 @@ class Imovel{
 
         virtual void EditaImovel();
         virtual string toString();
+		virtual string toStringArquivo();
 };
 
 #endif // IMOVEL_H

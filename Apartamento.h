@@ -27,6 +27,7 @@ class Apartamento: public Imovel{
         void setArea(double area);
 
         string toString();
+		string toStringArquivo();
         void EditaImovel(int itemEditado , int indice , string novaString , double novoValor);
 };
 

@@ -147,3 +147,26 @@ string Apartamento::toString()
 
     return strong.str();
 }
+
+string Apartamento::toStringArquivo() {
+	stringstream arquivo;
+
+	arquivo << id << endl
+		<< tipoImovel << endl
+		<< tipoOferta << endl
+		<< valor << endl
+		<< descricao << endl
+		<< endereco.getLogradouro() << endl
+		<< endereco.getNumero() << endl
+		<< endereco.getBairro() << endl
+		<< endereco.getCep() << endl
+		<< endereco.getCidade() << endl
+		<< posicao << endl
+		<< numQuartos << endl
+		<< valorCondominio << endl
+		<< vagasGaragem << endl
+		<< area << endl;
+
+	return arquivo.str();
+
+}

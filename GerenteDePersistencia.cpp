@@ -10,121 +10,122 @@ using namespace std;
 
 GerenteDePersistencia::GerenteDePersistencia()
 {
-    //ctor
+	//ctor
 }
 
-list<Imovel *> GerenteDePersistencia::recuperaListaImoveis(){
-    ifstream lerArquivo;
+list<Imovel*> GerenteDePersistencia::recuperaListaImoveis() {
+	ifstream lerArquivo;
 
-    std::list<Imovel *> listaImovel;
+	std::list<Imovel*> listaImovel;
 
-    int id, tipoImovel, tipoOferta, numero, numQuartos, vagasGaragem, numPavimento;
+	int id, tipoImovel, tipoOferta, numero, numQuartos, vagasGaragem, numPavimento;
 
-    double valor, valorCondominio, area, areaConstruida;
+	double valor, valorCondominio, area, areaConstruida;
 
-    string descricao, logradouro, bairro, cidade, cep, posicao;
+	string descricao, logradouro, bairro, cidade, cep, posicao;
 
 
-    lerArquivo.open("imoveisSalvos.txt", ios::in);
+	lerArquivo.open("imoveisSalvos.txt", ios::in);
 
-    if(!lerArquivo.is_open( )){
-        cout << "Não foi possível abrir arquivo!!\n";
-        lerArquivo.close();
-    }
+	if (!lerArquivo.is_open()) {
+		cout << "Não foi possível abrir arquivo!!\n";
+		lerArquivo.close();
+	}
 
-    while(lerArquivo.eof()){
-        lerArquivo >> id;
-        lerArquivo >> tipoImovel;
-        lerArquivo >> valor;
-        lerArquivo >> tipoOferta;
+	while (!lerArquivo.eof()) {
+		lerArquivo >> id;
+		lerArquivo >> tipoImovel;
+		lerArquivo >> valor;
+		lerArquivo >> tipoOferta;
 		lerArquivo.ignore();
 
-        getline(lerArquivo, descricao);
-        getline(lerArquivo, logradouro);
-        lerArquivo >> numero;
+		getline(lerArquivo, descricao);
+		getline(lerArquivo, logradouro);
+		lerArquivo >> numero;
 		lerArquivo.ignore();
 
-        getline(lerArquivo, bairro);
-        getline(lerArquivo, cidade);
-        getline(lerArquivo, cep);
+		getline(lerArquivo, bairro);
+		getline(lerArquivo, cidade);
+		getline(lerArquivo, cep);
 
-        if(tipoImovel == 1){
-            lerArquivo >> numPavimento;
-            lerArquivo >> numQuartos;
-            lerArquivo >> area;
-            lerArquivo >> areaConstruida;
+		if (tipoImovel == 1) {
+			lerArquivo >> numPavimento;
+			lerArquivo >> numQuartos;
+			lerArquivo >> area;
+			lerArquivo >> areaConstruida;
 			lerArquivo.ignore();
 
-            Casa *cs = new Casa();
+			Casa* cs = new Casa();
 
-            cs->setId(id);
-            cs->setEndereco(logradouro, numero, bairro, cep, cidade);
-            cs->setTipoOferta(tipoOferta);
-            cs->setDescricao(descricao);
-            cs->setValor(valor);
+			cs->setId(id);
+			cs->setEndereco(logradouro, numero, bairro, cep, cidade);
+			cs->setTipoOferta(tipoOferta);
+			cs->setDescricao(descricao);
+			cs->setValor(valor);
 
-            listaImovel.push_back(cs);
-        }
+			listaImovel.push_back(cs);
+		}
 
-        if(tipoImovel == 2){
-            getline(lerArquivo, posicao);
-            lerArquivo >> numQuartos;
-            lerArquivo >> valorCondominio;
-            lerArquivo >> vagasGaragem;
-            lerArquivo >> area;
+		if (tipoImovel == 2) {
+			getline(lerArquivo, posicao);
+			lerArquivo >> numQuartos;
+			lerArquivo >> valorCondominio;
+			lerArquivo >> vagasGaragem;
+			lerArquivo >> area;
 			lerArquivo.ignore();
 
-            Apartamento *ap = new Apartamento();
+			Apartamento* ap = new Apartamento();
 
-            ap->setId(id);
-            ap->setEndereco(logradouro, numero, bairro, cep, cidade);
-            ap->setTipoOferta(tipoOferta);
-            ap->setDescricao(descricao);
-            ap->setValor(valor);
-            ap->setPosicao(posicao);
-            ap->setNumQuartos(numQuartos);
-            ap->setValorCondominio(valorCondominio);
-            ap->setVagasGaragem(vagasGaragem);
-            ap->setArea(area);
+			ap->setId(id);
+			ap->setEndereco(logradouro, numero, bairro, cep, cidade);
+			ap->setTipoOferta(tipoOferta);
+			ap->setDescricao(descricao);
+			ap->setValor(valor);
+			ap->setPosicao(posicao);
+			ap->setNumQuartos(numQuartos);
+			ap->setValorCondominio(valorCondominio);
+			ap->setVagasGaragem(vagasGaragem);
+			ap->setArea(area);
 
-            listaImovel.push_back(ap);
-        }
+			listaImovel.push_back(ap);
+		}
 
-        if(tipoImovel == 3){
-            lerArquivo >> area;
+		if (tipoImovel == 3) {
+			lerArquivo >> area;
 			lerArquivo.ignore();
 
-            Terreno *ter = new Terreno();
+			Terreno* ter = new Terreno();
 
-            ter->setId(id);
-            ter->setEndereco(logradouro, numero, bairro, cep, cidade);
-            ter->setTipoOferta(tipoOferta);
-            ter->setDescricao(descricao);
-            ter->setValor(valor);
-            ter->setArea(area);
+			ter->setId(id);
+			ter->setEndereco(logradouro, numero, bairro, cep, cidade);
+			ter->setTipoOferta(tipoOferta);
+			ter->setDescricao(descricao);
+			ter->setValor(valor);
+			ter->setArea(area);
 
-            listaImovel.push_back(ter);
-        }
-    }
+			listaImovel.push_back(ter);
+		}
+	}
 
-    return listaImovel;
+	return listaImovel;
 
 }
 
 void GerenteDePersistencia::salvaListaImoveis(list<Imovel*> listaImovel)
 {
-    ofstream salvaArquivo;
-    salvaArquivo.open("imoveisSalvos.txt", ios::out);
-    // Verifica se o arquivo foi aberto corretamente
-    if(!salvaArquivo.is_open( )){
-        cout << "Não foi possível abrir arquivo!!\n";
-        salvaArquivo.close();
-        return;
-    }
+	ofstream salvaArquivo;
+	salvaArquivo.open("imoveisSalvos.txt", ios::out);
 
-    for(Imovel *i: listaImovel){
-        salvaArquivo << i-> toString() << endl;
-    }
+	// Verifica se o arquivo foi aberto corretamente
+	if (!salvaArquivo.is_open()) {
+		cout << "Não foi possível abrir arquivo!!\n";
+		salvaArquivo.close();
+		return;
+	}
 
-    salvaArquivo.close();
+	for (Imovel* i : listaImovel) {
+		salvaArquivo << i->toStringArquivo() << endl;
+	}
+
+	salvaArquivo.close();
 }

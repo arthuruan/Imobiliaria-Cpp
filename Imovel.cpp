@@ -84,3 +84,7 @@ void Imovel::setId(int id)
 string Imovel::toString(){
 
 }
+
+string Imovel::toStringArquivo() {
+
+}
