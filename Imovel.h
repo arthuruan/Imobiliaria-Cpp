@@ -38,6 +38,8 @@ class Imovel{
 
         virtual void EditaImovel();
         virtual string toString();
+        virtual string toStringEdit();
+        
 		virtual string toStringArquivo();
 };
 

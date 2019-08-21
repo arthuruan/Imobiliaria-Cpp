@@ -2,6 +2,9 @@
 #define SISTEMAIMOBILIARIA_H
 #include "GerenteDePersistencia.h"
 #include "Imovel.h"
+#include "Casa.h"
+#include "Apartamento.h"
+#include "Terreno.h"
 #include <list>
 
 class SistemaImobiliaria{
@@ -19,9 +22,11 @@ class SistemaImobiliaria{
         list<Imovel*> getImoveisPorCidade(string cidade);
         list<Imovel*> getImoveisPorValor(double valor, int flag);
         list<Imovel*> getImoveisPorTipoAnuncio(int tipo);
+        list<Imovel*> getImoveisID(int id);
 		GerenteDePersistencia getControladorArquivo();
 
         void exibe(list<Imovel *> list);
+        void exibeEdit(list<Imovel *> list);
 
     private:
         list<Imovel*> listaImovel;

@@ -1,4 +1,7 @@
 #include "SistemaImobiliaria.h"
+#include "Casa.h"
+#include "Apartamento.h"
+#include "Terreno.h"
 #include <bits/stdc++.h>
 #define MAIOR_QUE 1
 #define MENOR_QUE 2
@@ -14,10 +17,7 @@ void SistemaImobiliaria::DeletaImovel(int indice){
     for(list<Imovel *>::iterator i = listaImovel.begin(); i != listaImovel.end(); i++){
         if((*i)->getId() == indice){
             i = listaImovel.erase(i);
-            cout << "Imovel com id: " << indice << " deletado com sucesso.\n";
             break;
-        }else{
-            cout << "Imovel nao encontrado.\n";
         }
     }
 }
@@ -164,10 +164,27 @@ list<Imovel*> SistemaImobiliaria::getImoveisPorTipoAnuncio(int tipoOferta){
     return imoveisPorAnuncio;
 }
 
+list<Imovel*> SistemaImobiliaria::getImoveisID(int id){
+    list<Imovel*> imoveisID;
+
+    for(Imovel *i: listaImovel){
+        if(i->getId()==id)
+            imoveisID.push_back(i);
+    }
+    return imoveisID;
+}
+
 void SistemaImobiliaria::exibe(list<Imovel *> list){
      for(Imovel *i : list){
         cout << i->toString() << endl;
     }
+}
+
+void SistemaImobiliaria::exibeEdit(list<Imovel *> list){
+     for(Imovel *i : list){
+        cout << i->toStringEdit() << endl;
+    }
+}
 }
 
 GerenteDePersistencia SistemaImobiliaria::getControladorArquivo(){
