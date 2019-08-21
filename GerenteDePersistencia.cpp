@@ -33,10 +33,10 @@ list<Imovel*> GerenteDePersistencia::recuperaListaImoveis() {
 	}
 
 	while (!lerArquivo.eof()) {
-		lerArquivo >> id;
 		lerArquivo >> tipoImovel;
-		lerArquivo >> valor;
+		lerArquivo >> id;
 		lerArquivo >> tipoOferta;
+		lerArquivo >> valor;
 		lerArquivo.ignore();
 
 		getline(lerArquivo, descricao);
@@ -45,8 +45,8 @@ list<Imovel*> GerenteDePersistencia::recuperaListaImoveis() {
 		lerArquivo.ignore();
 
 		getline(lerArquivo, bairro);
-		getline(lerArquivo, cidade);
 		getline(lerArquivo, cep);
+		getline(lerArquivo, cidade);
 
 		if (tipoImovel == 1) {
 			lerArquivo >> numPavimento;

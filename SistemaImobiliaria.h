@@ -22,8 +22,7 @@ class SistemaImobiliaria{
         list<Imovel*> getImoveisID(int id);
         GerenteDePersistencia getControladorArquivo();
         
-        void exibe(list<Imovel *> list);
-        //void exibeEdit(list<Imovel *> list);
+        void exibe(list<Imovel *> lista);
 
     private:
         list<Imovel*> listaImovel;

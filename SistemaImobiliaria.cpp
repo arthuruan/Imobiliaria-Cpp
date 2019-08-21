@@ -22,8 +22,21 @@ void SistemaImobiliaria::DeletaImovel(int indice){
     }
 }
 
-void SistemaImobiliaria::setListaImovel(list<Imovel *> list){
-	listaImovel = list;
+void SistemaImobiliaria::setListaImovel(list<Imovel *> lista){
+    int qualquernome = 0;
+    
+    list<Imovel *> listaqualquer;
+
+    for(Imovel *i : lista){
+        if(qualquernome){
+            qualquernome = 0;
+            continue;
+        }else{
+            listaqualquer.push_back(i);
+            qualquernome++;
+        }
+    }
+	listaImovel = listaqualquer;
 }
 
 list<Imovel*> SistemaImobiliaria::getImoveis(){
@@ -180,12 +193,6 @@ void SistemaImobiliaria::exibe(list<Imovel *> list){
     }
 }
 
-/*void SistemaImobiliaria::exibeEdit(list<Imovel *> list){
-     for(Imovel *i : list){
-        cout << i->toStringEdit() << endl;
-    }
-}
-*/
 GerenteDePersistencia SistemaImobiliaria::getControladorArquivo(){
 	return controladorArquivo;
 }

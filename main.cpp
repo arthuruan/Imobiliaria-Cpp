@@ -150,12 +150,9 @@ int main(void) {
     string des, bair, cid;
     int tipo, ind;
     double val;
-
-
 	
     listaGenerica = s1->getControladorArquivo().recuperaListaImoveis();
 	s1-> setListaImovel(listaGenerica);
-
 	while (1) {
 
 		switch (m1.Menu1()) {//switch do menu principal
@@ -178,6 +175,7 @@ int main(void) {
                         ap = Cadastroall(2);
                         if(m1.Menu3()){//menu que pede a confimacao para salvar o cadastro
                             s1->CadastraImovel(ap);
+                            g1->salvaListaImoveis(s1->getImoveis());
                         }else{
                             break;
                         }
@@ -187,6 +185,7 @@ int main(void) {
                         ter = Cadastroall(3);
                         if(m1.Menu3()){//menu que pede a confimacao para salvar o cadastro
                             s1->CadastraImovel(ter);
+                            g1->salvaListaImoveis(s1->getImoveis());
                         }else{
                             break;
                         }
