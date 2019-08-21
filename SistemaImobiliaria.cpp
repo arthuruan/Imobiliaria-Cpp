@@ -14,106 +14,13 @@ void SistemaImobiliaria::CadastraImovel(Imovel* im){
 }
 
 void SistemaImobiliaria::DeletaImovel(int indice){
-    for(Imovel *i : listaImovel){
-        if(i->getId() == indice){
-            listaImovel.remove(i);
-            cout << "Imovel com id: " << indice << " deletado com sucesso.\n";
-        }else{
-            cout << "Imovel nao encontrado.\n";
+    for(list<Imovel *>::iterator i = listaImovel.begin(); i != listaImovel.end(); i++){
+        if((*i)->getId() == indice){
+            i = listaImovel.erase(i);
+            break;
         }
     }
 }
-/*
-void SistemaImobiliaria::EditaImovel(int itemEditado , int indice , string novaString , double novoValor)
-{
-    for(Imovel *i : listaImovel){
-        if(i->getId() == indice){
-
-            if((i->getTipoImovel() == 1) && (itemEditado>8))//no caso de casa
-            {
-                switch (itemEditado)
-                {
-                    case 9://PAVIMENTOS
-                        i->setNumPavimentos(novoValor);
-                        break;
-                    case 10://NUMERO DE QUARTOS
-                        i->setNumQuartos(novoValor);
-                        break;
-                    case 11://AREA DO TERRENO
-                        i->setAreaTerreno(novoValor);
-                        break;
-                    case 12://AREA CONSTRUIDA
-                        i->setAreaConstruida(novoValor);
-                        break;
-                    default:
-                        cout<<"opcao invalida"<<endl;
-                        break;
-                }
-            }
-            else if((i->getTipoImovel() == 2) && (itemEditado>8))//no caso de apartamento
-            {
-                switch (itemEditado)
-                {
-                    case 9://POSICAO
-                        i->setPosicao(novaString);
-                        break;
-                    case 10://NUMERO DE QUARTOS
-                        i->setNumQuartos(novoValor);
-                        break;
-                    case 11://VALOR CONDOMINIO
-                        i->setValorCondominio(novoValor);
-                        break;
-                    case 12://VAGAS GARAGEM
-                        i->setVagasGaragem(novoValor);
-                        break;
-                    case 13://AREA DO AP
-                        i->setArea(novoValor);
-                        break;
-                }
-            }
-            else if((i->getTipoImovel() == 3) && (itemEditado>8))//no caso de terreno
-            {
-                switch (itemEditado)
-                {
-                    case 9://AREA DO TERRENO
-                        i->setArea(novoValor);
-                        break;
-                }
-            }
-            else
-            {
-                switch(itemEditado){
-                    case 1://TIPO OFERTA
-                        i->setTipoOferta(novoValor);
-                        break;
-                    case 2://VALOR R$
-                        i->setValor(novoValor);
-                        break;
-                    case 3://DESCRICAO DO IMOVEL
-                        i->setDescricao(novaString);
-                        break;
-                    case 4://LOGRADOURO
-                        i->getEndereco().setLogradouro(novaString);
-                        break;
-                    case 5://NUMERO
-                        i->getEndereco().setNumero(novoValor);
-                        break;
-                    case 6://BAIRRO
-                        i->getEndereco().setBairro(novaString);
-                        break;
-                    case 7://CEP
-                        i->getEndereco().setCep(novaString);
-                        break;
-                    case 8://CIDADE
-                        i->getEndereco().setCidade(novaString);
-                        break;
-                }
-            }
-        }else{
-            cout << "Imovel nao encontrado.";
-        }
-    }
-}*/
 
 list<Imovel*> SistemaImobiliaria::getImoveis(){
     return listaImovel;

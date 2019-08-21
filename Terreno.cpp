@@ -56,3 +56,22 @@ string Terreno::toStringEdit()
     return strong.str();
 }
 
+string Terreno::toStringArquivo() {
+	stringstream arquivo;
+
+	arquivo << id << endl
+		<< tipoImovel << endl
+		<< tipoOferta << endl
+		<< valor << endl
+		<< descricao << endl
+		<< endereco.getLogradouro() << endl
+		<< endereco.getNumero() << endl
+		<< endereco.getBairro() << endl
+		<< endereco.getCep() << endl
+		<< endereco.getCidade() << endl
+		<< area << endl;
+
+	return arquivo.str();
+
+}
+

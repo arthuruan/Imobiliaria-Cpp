@@ -95,8 +95,6 @@ string Apartamento::toString()
           << "Vagas garagem: " << vagasGaragem << endl
           << "Area do apartamento: " << area << endl;
 
-    //system("ws");
-
     return strong.str();
 }
 
@@ -119,7 +117,28 @@ string Apartamento::toStringEdit()
           << "12 - Vagas garagem: " << vagasGaragem << endl
           << "13 - Area do apartamento: " << area << endl;
 
-    //system("ws");
-
     return strong.str();
+}
+
+string Apartamento::toStringArquivo() {
+	stringstream arquivo;
+
+	arquivo << id << endl
+		<< tipoImovel << endl
+		<< tipoOferta << endl
+		<< valor << endl
+		<< descricao << endl
+		<< endereco.getLogradouro() << endl
+		<< endereco.getNumero() << endl
+		<< endereco.getBairro() << endl
+		<< endereco.getCep() << endl
+		<< endereco.getCidade() << endl
+		<< posicao << endl
+		<< numQuartos << endl
+		<< valorCondominio << endl
+		<< vagasGaragem << endl
+		<< area << endl;
+
+	return arquivo.str();
+
 }

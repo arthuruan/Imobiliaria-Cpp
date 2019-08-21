@@ -105,6 +105,24 @@ string Casa::toStringEdit()//addnumeros
     return edit.str();
 }
 
+string Casa::toStringArquivo() {
+	stringstream arquivo;
 
+	arquivo << id << endl
+		<< tipoImovel << endl
+		<< tipoOferta << endl
+		<< valor << endl
+		<< descricao << endl
+		<< endereco.getLogradouro() << endl
+		<< endereco.getNumero() << endl
+		<< endereco.getBairro() << endl
+		<< endereco.getCep() << endl
+		<< endereco.getCidade() << endl
+		<< numPavimentos << endl
+		<< numQuartos << endl
+		<< areaTerreno << endl
+		<< areaConstruida << endl;
 
+	return arquivo.str();
 
+}

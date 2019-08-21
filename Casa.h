@@ -28,6 +28,7 @@ class Casa : public Imovel{
         string toString();
         string toStringEdit();
         
+		string toStringArquivo();
 };
 
 #endif // CASA_H

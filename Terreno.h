@@ -14,5 +14,6 @@ class Terreno : public Imovel{
 
         string toString();
         string toStringEdit();
+		string toStringArquivo();
 };
 #endif // TERRENO_H

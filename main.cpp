@@ -3,6 +3,7 @@
 #include "Casa.h"
 #include "Apartamento.h"
 #include "Terreno.h"
+#include "GerenteDePersistencia.h"
 
 static int id = 1;
 
@@ -20,7 +21,7 @@ Imovel* Cadastroall(int tipoImovel){
     int numQuartos;                                          //
     double areaTerreno;                                      //
     double areaConstruida;                                   //
-    //Aparatamento                                           //
+    //Apartamento                                            //
     string posicao;                                          //
     int numQuartosAP;                                        //
     double valorCondominio;                                  //
@@ -50,7 +51,7 @@ Imovel* Cadastroall(int tipoImovel){
     cout << "Digite o CEP: ";
     getline(cin, cep);
     cout << "Digite a cidade: ";
-    getline(cin, cidade);
+    getline(cin, cidade); 
 
     if(tipoImovel == 1){//Casa
         Casa *cs = new Casa();
@@ -63,6 +64,7 @@ Imovel* Cadastroall(int tipoImovel){
         FLUSH;
         cout << "Digite a area do terreno: ";
         scanf("%lf", &areaTerreno);
+        FLUSH;
         cout << "Digite a area construida: ";
         scanf("%lf", &areaConstruida);
         FLUSH;
@@ -352,10 +354,12 @@ int main(void) {
 	int flagmenu = 0;//flag criada para facilitar a navegacao entre o menu principal e os secundarios
 
 	Menu m1 = Menu();
-    SistemaImobiliaria s1 = SistemaImobiliaria();
+    SistemaImobiliaria *s1 = new SistemaImobiliaria();
     Imovel *cs = new Casa();
     Imovel *ap = new Apartamento();
     Imovel *ter = new Terreno();
+    GerenteDePersistencia *g1 = new GerenteDePersistencia();
+    
     string des, bair, cid;
     int tipo, ind, idEdita, itemEdit;
     double val;
@@ -363,202 +367,188 @@ int main(void) {
 	while (1) {
 
 		switch (m1.Menu1()) {//switch do menu principal
-		case 1://cadastro
-			flagmenu = 1;
-			CLEAR;
-			switch (m1.Menu2()) {//switch secundario com o menu que remete opcoes para cadastro
-                case 1://opcao casa
-                    CLEAR;
-                    cs = Cadastroall(1);
-                    if(m1.Menu3()){//menu que pede a confimacao para salvar o cadastro
-                        s1.CadastraImovel(cs);
-                        flagmenu = 0;
-                    }else{
-                        flagmenu = 0;
-                        break;
-                    }
-                    break;
-                    flagmenu = 0;
-                    break;
-                case 2://opcao apartamento
-                    CLEAR;
-                    ap = Cadastroall(2);
-                    if(m1.Menu3()){//menu que pede a confimacao para salvar o cadastro
-                        s1.CadastraImovel(ap);
-                        flagmenu = 0;
-                    }else{
+            case 1://cadastro
+                CLEAR;
+                switch (m1.Menu2()) {//switch secundario com o menu que remete opcoes para cadastro
+                    case 1://opcao casa
+                        CLEAR;
+                        cs = Cadastroall(1);
+                        if(m1.Menu3()){//menu que pede a confimacao para salvar o cadastro
+                            s1->CadastraImovel(cs);
+                            g1->salvaListaImoveis(s1->getImoveis());
+                        }else{
+                            break;
+                        }
                         flagmenu = 0;
                         break;
-                    }
-                    break;
-                case 3://opcao terreno
-                    CLEAR;
-                    ter = Cadastroall(3);
-                    if(m1.Menu3()){//menu que pede a confimacao para salvar o cadastro
-                        s1.CadastraImovel(ter);
-                        flagmenu = 0;
-                    }else{
-                        flagmenu = 0;
+                    case 2://opcao apartamento
+                        CLEAR;
+                        ap = Cadastroall(2);
+                        if(m1.Menu3()){//menu que pede a confimacao para salvar o cadastro
+                            s1->CadastraImovel(ap);
+                        }else{
+                            break;
+                        }
                         break;
-                    }
-                    break;
-                case 4://opcao voltar para o menu principal
-                    flagmenu = 0;
-                    break;
-			}
-			break;
-		case 2://opcao consultar imoveis disponivel
-            CLEAR;
-            s1.exibe(s1.getImoveis());
-            PAUSE;
-			break;
-		case 3://opcao de busca
-			switch (m1.Menu4()){//menu secundario para saber o tipo da busca
-                case 1://busca por titulo
-                    CLEAR; 
-                    getline(cin, des);
-                    CLEAR;
-                    s1.exibe(s1.getDescricaoImoveis(des));
-                    PAUSE;
-                    break;
-                case 2://busca por bairro
-                    switch(m1.Menu8()){
-                        case 1://alguel
-                            CLEAR;
-                            cout << "Digite o bairro: ";
-                            getline(cin, bair);
-                            cout << endl;
-                            s1.exibe(s1.getImoveisParaAlugarPorBairro(1, bair));
-                            PAUSE;
+                    case 3://opcao terreno
+                        CLEAR;
+                        ter = Cadastroall(3);
+                        if(m1.Menu3()){//menu que pede a confimacao para salvar o cadastro
+                            s1->CadastraImovel(ter);
+                        }else{
                             break;
-                        case 2://venda
-                            CLEAR;
-                            cout << "Digite o bairro: ";
-                            getline(cin, bair);
-                            cout << endl;
-                            s1.exibe(s1.getImoveisParaVenderPorBairro(2, bair));
-                            PAUSE;
-                            break;
-                        case 3:
-                            break;
-                    }
-                    flagmenu = 0;
-                    break;
-                case 3://busca por valor
-                    switch(m1.Menu9()){
-                        case 1://maior
-                            CLEAR;
-                            cout << "Digite o valor: ";
-                            scanf("%lf", &val);
-                            FLUSH;
-                            s1.exibe(s1.getImoveisPorValor(val, 1));
-                            PAUSE;
-                            break;
-                        case 2://menor
-                            CLEAR;
-                            cout << "Digite o valor: ";
-                            scanf("%lf", &val);
-                            FLUSH;
-                            s1.exibe(s1.getImoveisPorValor(val, 2));
-                            PAUSE;
-                            break;
-                        case 3:
-                            break;
-                    }
-                    flagmenu = 0;
-                    break;
-                case 4://tipo imovel
-                    switch(m1.Menu2()){
-                        case 1://casa
-                            CLEAR;
-                            s1.exibe(s1.getImoveisPorTipo(1));
-                            PAUSE;
-                            break;
-                        case 2://apartamento
-                            CLEAR;
-                            s1.exibe(s1.getImoveisPorTipo(2));
-                            PAUSE;
-                            break;
-                        case 3://terreno
-                            CLEAR;
-                            s1.exibe(s1.getImoveisPorTipo(3));
-                            PAUSE;
-                            break;
-                        case 4:
-                            break;
-                    }
-                    flagmenu = 0;
-                    break;
-                case 5://volta par ao menu principal
-                    flagmenu = 0;
-                    break;
-			}
-			break;
-		case 4://opcao que exibe imovel para aluguel || venda
-			switch (m1.Menu5()){//menu secundario com opcoes de aluguel ou venda
-                case 1://opcao por aluguel
-                    CLEAR;
-                    s1.exibe(s1.getImoveisPorTipoAnuncio(1));
-                    PAUSE;
-                    flagmenu = 0;
-                    break;
-                case 2://opcao por venda
-                    CLEAR;
-                    s1.exibe(s1.getImoveisPorTipoAnuncio(2));
-                    PAUSE;
-                    flagmenu = 0;
-                    break;
-                case 3://volta menu principal
-                    flagmenu = 0;
-                    break;
-			}
-			break;
-		case 5://opcao para deletar um cadastro
-            CLEAR;
-            cout << "Digite o indice do imovel que desesejas excluir: ";
-            scanf("%d", &ind);
-            FLUSH;
-            cout << endl;
-            s1.DeletaImovel(ind);
-            PAUSE;
-			break;
-		case 6://opcao para editar um cadastro
-            switch(m1.Menu2())
-            {
-                case 1:
-                    CLEAR;
-                    s1.exibe(s1.getImoveisPorTipo(1));
-                    PAUSE;
-                    CLEAR;
-                    cout<<"Insira o Id do imovel que desejas editar: "<<endl;
-                    scanf("%d", &idEdita);
-                    FLUSH;
-                    CLEAR;
-                    s1.exibeEdit(s1.getImoveisID(idEdita));
-                    //cs->toStringEdit();
-                    PAUSE;
-                    cout<<"Qual item desejas editar?"<<endl;
-                    scanf("%d", &itemEdit);
-                    FLUSH;
-                    cs = EditaImovel(1, itemEdit);
-                    s1.CadastraImovel(cs);
-                    s1.DeletaImovel(idEdita);
+                        }
+                        break;
+                    case 4://opcao voltar para o menu principal
+                        break;
+                }
+                break;
+            case 2://opcao consultar imoveis disponivel
+                CLEAR;
+                s1->exibe(s1->getImoveis());
+                PAUSE;
+                break;
+            case 3://opcao de busca
+                switch (m1.Menu4()){//menu secundario para saber o tipo da busca
+                    case 1://busca por titulo
+                        CLEAR;
+                        cout << "Digite a descricao: "; 
+                        getline(cin, des);
+                        CLEAR;
+                        s1->exibe(s1->getDescricaoImoveis(des));
+                        PAUSE;
+                        break;
+                    case 2://busca por bairro
+                        switch(m1.Menu8()){
+                            case 1://alguel
+                                CLEAR;
+                                cout << "Digite o bairro: ";
+                                getline(cin, bair);
+                                cout << endl;
+                                s1->exibe(s1->getImoveisParaAlugarPorBairro(1, bair));
+                                PAUSE;
+                                break;
+                            case 2://venda
+                                CLEAR;
+                                cout << "Digite o bairro: ";
+                                getline(cin, bair);
+                                cout << endl;
+                                s1->exibe(s1->getImoveisParaVenderPorBairro(2, bair));
+                                PAUSE;
+                                break;
+                            case 3:
+                                break;
+                        }
+                        break;
+                    case 3://busca por valor
+                        switch(m1.Menu9()){
+                            case 1://maior
+                                CLEAR;
+                                cout << "Digite o valor: ";
+                                scanf("%lf", &val);
+                                FLUSH;
+                                s1->exibe(s1->getImoveisPorValor(val, 1));
+                                PAUSE;
+                                break;
+                            case 2://menor
+                                CLEAR;
+                                cout << "Digite o valor: ";
+                                scanf("%lf", &val);
+                                FLUSH;
+                                s1->exibe(s1->getImoveisPorValor(val, 2));
+                                PAUSE;
+                                break;
+                            case 3:
+                                break;
+                        }
+                        break;
+                    case 4://tipo imovel
+                        switch(m1.Menu2()){
+                            case 1://casa
+                                CLEAR;
+                                s1->exibe(s1->getImoveisPorTipo(1));
+                                PAUSE;
+                                break;
+                            case 2://apartamento
+                                CLEAR;
+                                s1->exibe(s1->getImoveisPorTipo(2));
+                                PAUSE;
+                                break;
+                            case 3://terreno
+                                CLEAR;
+                                s1->exibe(s1->getImoveisPorTipo(3));
+                                PAUSE;
+                                break;
+                            case 4:
+                                break;
+                        }
+                        break;
+                    case 5: 
+                        break;
+                }
+                break;
+            case 4://opcao que exibe imovel para aluguel || venda
+                switch (m1.Menu5()){//menu secundario com opcoes de aluguel ou venda
+                    case 1://opcao por aluguel
+                        CLEAR;
+                        s1->exibe(s1->getImoveisPorTipoAnuncio(1));
+                        PAUSE;
+                        break;
+                    case 2://opcao por venda
+                        CLEAR;
+                        s1->exibe(s1->getImoveisPorTipoAnuncio(2));
+                        PAUSE;
+                        break;
+                    case 3://volta menu principal
+                        break;
+                }
+                break;
+            case 5://opcao para deletar um cadastro
+                CLEAR;
+                cout << "Digite o indice do imovel que desesejas excluir: ";
+                scanf("%d", &ind);
+                FLUSH;
+                cout << endl;
+                s1->DeletaImovel(ind);
+                g1->salvaListaImoveis(s1->getImoveis());
+                PAUSE;
+                break;
+            case 6://opcao para editar um cadastro
+                switch(m1.Menu2())
+                {
+                    case 1:
+                        CLEAR;
+                        s1->exibe(s1->getImoveisPorTipo(1));
+                        PAUSE;
+                        CLEAR;
+                        cout<<"Insira o Id do imovel que desejas editar: "<<endl;
+                        scanf("%d", &idEdita);
+                        FLUSH;
+                        CLEAR;
+                        s1->exibeEdit(s1->getImoveisID(idEdita));
+                        //cs->toStringEdit();
+                        PAUSE;
+                        cout<<"Qual item desejas editar?"<<endl;
+                        scanf("%d", &itemEdit);
+                        FLUSH;
+                        cs = EditaImovel(1, itemEdit);
+                        s1->CadastraImovel(cs);
+                        s1->DeletaImovel(idEdita);
 
-                    break;
-                case 2:
+                        break;
+                    case 2:
 
-                    break;
-                case 3:
+                        break;
+                    case 3:
 
-                    break;
-                case 4:
-                    break;
-            }     
-
-			break;
-		case 7://encerrar o programa
-			flagmenu = 1;
-			break;
+                        break;
+                    case 4:
+                        break;
+                }
+                break;
+            case 7://encerrar o programa
+                flagmenu = 1;
+                break;
 		}//fim do switch principal
 		if (flagmenu)//if criado para sair do while
 			break;
