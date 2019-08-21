@@ -22,6 +22,10 @@ void SistemaImobiliaria::DeletaImovel(int indice){
     }
 }
 
+void SistemaImobiliaria::setListaDeImoveis(list<Imovel*> list){
+	listaImovel = list;
+}
+
 list<Imovel*> SistemaImobiliaria::getImoveis(){
     return listaImovel;
 }
@@ -164,4 +168,8 @@ void SistemaImobiliaria::exibe(list<Imovel *> list){
      for(Imovel *i : list){
         cout << i->toString() << endl;
     }
+}
+
+GerenteDePersistencia SistemaImobiliaria::getControladorArquivo(){
+	return controladorArquivo;
 }

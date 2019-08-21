@@ -12,6 +12,11 @@
       "MIMode": "gdb",
       "miDebuggerPath": "${env.MINGW_PREFIX}\\bin\\gdb.exe",
       "externalConsole": true
+    },
+    {
+      "type": "default",
+      "project": "",
+      "name": "C:\\Users\\pablo\\Source\\Repos\\ArthurRuan123\\Imobiliaria-Cpp(1)"
     }
   ]
 }

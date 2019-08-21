@@ -135,6 +135,8 @@ Imovel* Cadastroall(int tipoImovel){
     }
 }
 
+list<Imovel*> listaGenerica;
+
 int main(void) {
 	int flagmenu = 0;//flag criada para facilitar a navegacao entre o menu principal e os secundarios
 
@@ -148,6 +150,11 @@ int main(void) {
     string des, bair, cid;
     int tipo, ind;
     double val;
+
+
+	listaGenerica = s1->getControladorArquivo()-> recuperaListaImoveis();
+	s1-> setListaDeImoveis(listaGenerica);
+	s1-> exibe(s1->getImoveis());
 
 	while (1) {
 
